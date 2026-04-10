@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employment Hero × Simpro — Sales Enablement Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #a569ff;
+  --purple-dark: #7622d7;
+  --purple-deep: #460078;
+  --purple-bg: #2d0649;
+  --purple-light: #bb8eff;
+  --purple-lighter: #d2b4ff;
+  --purple-lightest: #e9d9ff;
+  --lime: #bafc58;
+  --amber: #ffa000;
+  --cyan: #40d1ff;
+  --near-black: #121214;
+  --white: #fdfbff;
+  --gray-100: #f5f3f8;
+  --gray-200: #ebe7f2;
+  --gray-300: #d4cce0;
+  --gray-500: #8a7fa0;
+  --gray-700: #3d3550;
+  --text-primary: #121214;
+  --text-secondary: #5a5070;
+  --text-muted: #9990b0;
+  --shadow-sm: 0 1px 3px rgba(70,0,120,0.06), 0 1px 2px rgba(70,0,120,0.04);
+  --shadow-md: 0 4px 16px rgba(70,0,120,0.08), 0 2px 8px rgba(70,0,120,0.05);
+  --shadow-lg: 0 8px 32px rgba(70,0,120,0.12), 0 4px 16px rgba(70,0,120,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+h1, h2, h3, h4, .logo-text {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+}
+
+/* ── LAYOUT SHELL ── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--gray-100);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOP HEADER BAR ── */
+.topbar {
+  background: linear-gradient(135deg, #1a0035 0%, var(--purple-bg) 50%, #1a0035 100%);
+  border-bottom: 1px solid rgba(118,34,215,0.4);
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.topbar-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.topbar-eh-logo {
+  height: 189px;
+  width: auto;
+  display: block;
+}
+.topbar-sep {
+  color: rgba(165,105,255,0.5);
+  font-size: 22px;
+  font-weight: 200;
+  line-height: 1;
+  font-family: 'Lexend', sans-serif;
+}
+.topbar-sim-logo {
+  height: 14px;
+  width: auto;
+  display: block;
+  opacity: 0.85;
+}
+.topbar-right {
+  margin-left: auto;
+  font-family: 'Lexend', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(165,105,255,0.55);
+}
+
+/* ── APP BODY: SIDEBAR + CONTENT ── */
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 272px;
+  flex-shrink: 0;
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 32px;
+  box-shadow: 2px 0 8px rgba(70,0,120,0.04);
+}
+.sidebar-section-label {
+  font-family: 'Lexend', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 20px;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+.sidebar-section-label:first-child { margin-top: 0; }
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.sidebar-nav-item:hover {
+  color: var(--purple-dark);
+  background: var(--purple-lightest);
+}
+.sidebar-nav-item.active {
+  color: var(--purple-dark);
+  background: var(--purple-lightest);
+  border-left-color: var(--purple-dark);
+  font-weight: 600;
+}
+.sidebar-nav-item .nav-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+.sidebar-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 12px 20px;
+}
+
+/* ── MAIN CONTENT AREA ── */
+.content-area {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+/* ── LAYOUT ── */
+.page { display: none; padding: 32px 36px 60px; max-width: 1060px; }
+.page.active { display: block; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--purple-bg) 0%, var(--purple-deep) 60%, #2d0060 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px 56px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -60px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(165,105,255,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 80px;
+  bottom: -80px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(186,252,88,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(165,105,255,0.2);
+  border: 1px solid rgba(165,105,255,0.35);
+  color: var(--purple-lighter);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  font-family: 'Lexend', sans-serif;
+}
+.hero h1 {
+  color: var(--white);
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  max-width: 620px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--lime);
+}
+.hero p {
+  color: rgba(253,251,255,0.7);
+  font-size: 16px;
+  max-width: 520px;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hero-chip {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(253,251,255,0.85);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.hero-chip:hover {
+  background: rgba(165,105,255,0.3);
+  border-color: var(--purple-light);
+  color: var(--white);
+}
+
+/* ── CARDS ── */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+.grid-1 { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.card-accent {
+  border-top: 3px solid var(--purple);
+}
+.card-accent-lime { border-top: 3px solid var(--lime); }
+.card-accent-amber { border-top: 3px solid var(--amber); }
+.card-accent-cyan { border-top: 3px solid var(--cyan); }
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.icon-purple { background: var(--purple-lightest); }
+.icon-lime { background: #f0ffd4; }
+.icon-amber { background: #fff3dc; }
+.icon-cyan { background: #e0f7ff; }
+
+.card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  font-family: 'Lexend', sans-serif;
+  letter-spacing: -0.3px;
+}
+.card p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── SECTION HEADINGS ── */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.section-header h2 {
+  font-size: 20px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+.section-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--purple-dark);
+  background: var(--purple-lightest);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-family: 'Lexend', sans-serif;
+}
+
+/* ── FLOW DIAGRAM ── */
+.flow-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+.flow-title {
+  font-family: 'Lexend', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 24px;
+}
+
+/* ── PLATFORM PILLARS ── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.pillar {
+  background: var(--white);
+  padding: 28px 22px;
+}
+.pillar:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.pillar:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.pillar-logo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.pillar-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.5px;
+}
+.badge-blue { background: #e0f0ff; color: #0066cc; }
+.badge-purple { background: var(--purple-lightest); color: var(--purple-deep); }
+.badge-green { background: #e4f9e4; color: #1a7a1a; }
+.pillar h4 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.pillar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pillar li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+.pillar li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.pillar.simpro li::before { background: #0066cc; }
+.pillar.ehhr li::before { background: var(--purple-dark); }
+.pillar.ehpay li::before { background: #1a7a1a; }
+
+/* ── SCENARIO CARDS ── */
+.scenario-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.stab {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.stab:hover { border-color: var(--purple-light); color: var(--purple-dark); }
+.stab.active { background: var(--purple-dark); border-color: var(--purple-dark); color: var(--white); }
+
+.scenario-panel { display: none; }
+.scenario-panel.active { display: block; }
+
+.scenario-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.sc-header {
+  background: linear-gradient(135deg, var(--purple-bg), var(--purple-deep));
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.sc-header h3 {
+  color: var(--white);
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.sc-header p { color: rgba(253,251,255,0.72); font-size: 14px; line-height: 1.6; }
+.sc-flow-badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+.sc-flow-badge .flow-label { font-size: 10px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; margin-bottom: 6px; font-family: 'Lexend', sans-serif; }
+.sc-flow-badge .flow-val { font-size: 13px; color: var(--white); font-weight: 500; line-height: 1.8; }
+.sc-flow-badge .flow-arrow { color: var(--lime); font-weight: 700; }
+.sc-body { padding: 28px 32px; }
+.sc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.sc-section h4 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.sc-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.sc-section li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.sc-check { color: var(--purple-dark); font-size: 15px; flex-shrink: 0; margin-top: 0px; }
+.sc-cross { color: #cc3333; font-size: 15px; flex-shrink: 0; }
+.sc-industries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.industry-tag {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── MISCONCEPTIONS ── */
+.myth-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.myth-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.myth-header:hover { background: var(--gray-100); }
+.myth-icon {
+  width: 32px;
+  height: 32px;
+  background: #ffeaea;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.myth-text { flex: 1; }
+.myth-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #cc2222;
+  text-transform: uppercase;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 3px;
+}
+.myth-claim { font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
+.myth-chevron { color: var(--text-muted); font-size: 18px; transition: transform 0.2s; }
+.myth-body {
+  display: none;
+  padding: 0 22px 20px 68px;
+  border-top: 1px solid var(--gray-100);
+}
+.myth-body.open { display: block; }
+.myth-reality-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #1a7a1a;
+  text-transform: uppercase;
+  font-family: 'Lexend', sans-serif;
+  margin: 14px 0 8px;
+}
+.myth-reality { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ── DECISION TOOL ── */
+.decision-tool {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.decision-tool h3 {
+  font-size: 18px;
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+}
+.decision-tool > p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+.dt-questions { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+.dt-q {
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}
+.dt-q-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; color: var(--text-muted); font-family: 'Lexend', sans-serif; margin-bottom: 8px; }
+.dt-q-text { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 14px; line-height: 1.5; }
+.dt-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.dt-btn {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--gray-300);
+  background: var(--white);
+  color: var(--text-secondary);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.dt-btn:hover { border-color: var(--purple); color: var(--purple-dark); }
+.dt-btn.selected { background: var(--purple-dark); border-color: var(--purple-dark); color: var(--white); }
+.dt-result {
+  background: linear-gradient(135deg, var(--purple-bg), #3a0a6e);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: none;
+}
+.dt-result.show { display: block; }
+.dt-result-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 8px;
+}
+.dt-result h4 { font-size: 18px; color: var(--white); margin-bottom: 8px; letter-spacing: -0.3px; }
+.dt-result p { font-size: 14px; color: rgba(253,251,255,0.75); line-height: 1.7; }
+.dt-reset {
+  margin-top: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+.dt-reset:hover { background: rgba(255,255,255,0.18); color: var(--white); }
+
+/* ── CHEAT SHEET ── */
+.cheat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.cheat-table th {
+  background: var(--purple-bg);
+  color: var(--white);
+  font-family: 'Lexend', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
+  text-align: left;
+  white-space: nowrap;
+}
+.cheat-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.cheat-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.cheat-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--text-secondary);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.cheat-table tr:last-child td { border-bottom: none; }
+.cheat-table tr:nth-child(even) td { background: var(--gray-100); }
+.cheat-table .dim { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+.platform-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.chip-simpro { background: #ddeeff; color: #004499; }
+.chip-ehhr { background: var(--purple-lightest); color: var(--purple-deep); }
+.chip-ehpay { background: #e4f9e4; color: #1a5c1a; }
+
+/* ── GOLDEN RULE BANNER ── */
+.golden-rule {
+  background: linear-gradient(135deg, #1a0035, var(--purple-bg));
+  border-radius: var(--radius);
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(165,105,255,0.2);
+}
+.golden-rule-icon { font-size: 28px; flex-shrink: 0; }
+.golden-rule-text { flex: 1; }
+.golden-rule-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  color: var(--lime);
+  text-transform: uppercase;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 5px;
+}
+.golden-rule-body { font-size: 14px; color: rgba(253,251,255,0.85); line-height: 1.6; }
+.golden-rule-body strong { color: var(--white); }
+
+/* ── FLOW DIAGRAM SVG ── */
+.flow-svg-wrap { overflow-x: auto; padding-bottom: 8px; }
+
+/* ── QUICK STATS ── */
+.stats-row { display: flex; gap: 12px; margin-bottom: 24px; }
+.stat-card {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.stat-num { font-size: 32px; font-weight: 700; font-family: 'Lexend', sans-serif; color: var(--purple-dark); letter-spacing: -1px; }
+.stat-label { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── CONTACT CARDS ── */
+.contact-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  transition: box-shadow 0.15s;
+}
+.contact-card:hover { box-shadow: var(--shadow-md); }
+.contact-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lexend', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+.avatar-eh { background: var(--purple-lightest); color: var(--purple-dark); }
+.avatar-sim { background: #ddeeff; color: #004499; }
+.contact-info { flex: 1; min-width: 0; }
+.contact-platform-tag {
+  font-family: 'Lexend', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.contact-platform-tag.eh { color: var(--purple-dark); }
+.contact-platform-tag.sim { color: #004499; }
+.contact-name {
+  font-family: 'Lexend', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  letter-spacing: -0.3px;
+}
+.contact-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--purple-dark);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--purple-lightest);
+  border: 1px solid var(--purple-lighter);
+  transition: all 0.15s;
+  word-break: break-all;
+}
+.contact-email:hover { background: var(--purple-lighter); color: var(--purple-deep); }
+.contact-card.sim .contact-email { color: #004499; background: #ddeeff; border-color: #b0cce8; }
+.contact-card.sim .contact-email:hover { background: #c0ddff; }
+
+/* ── ROI PAGE ── */
+.roi-hero {
+  background: linear-gradient(135deg, var(--purple-bg), #3a0a6e);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.roi-hero::before {
+  content: '';
+  position: absolute;
+  right: -30px; top: -30px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(186,252,88,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.roi-hero h2 { color: var(--white); font-size: 26px; letter-spacing: -0.5px; margin-bottom: 8px; }
+.roi-hero p { color: rgba(253,251,255,0.72); font-size: 14.5px; line-height: 1.7; max-width: 640px; }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.roi-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.roi-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+.roi-card-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+.roi-card h4 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+.roi-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; }
+.roi-stat-banner {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.roi-stat-num {
+  font-family: 'Lexend', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--purple-dark);
+  letter-spacing: -1.5px;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+.roi-stat-label { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+.roi-stat-label strong { color: var(--text-primary); font-weight: 600; }
+.roi-accent-bar {
+  width: 4px;
+  height: 48px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.bar-purple { background: var(--purple-dark); }
+.bar-lime { background: var(--lime); }
+.bar-amber { background: var(--amber); }
+.bar-cyan { background: var(--cyan); }
+.roi-callout {
+  background: linear-gradient(135deg, #1a0035, var(--purple-bg));
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  border: 1px solid rgba(165,105,255,0.2);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.roi-callout-icon { font-size: 24px; flex-shrink: 0; }
+.roi-callout-text { flex: 1; }
+.roi-callout-label {
+  font-family: 'Lexend', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 6px;
+}
+.roi-callout-body { font-size: 14px; color: rgba(253,251,255,0.82); line-height: 1.65; }
+.roi-callout-body strong { color: var(--white); }
+.roi-vs-table {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.roi-vs-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.roi-vs-table th {
+  padding: 11px 16px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: left;
+  color: var(--white);
+}
+.roi-vs-table th:first-child { background: var(--gray-100); color: var(--text-muted); }
+.roi-vs-table th.th-manual { background: #cc4444; }
+.roi-vs-table th.th-integrated { background: var(--purple-deep); }
+.roi-vs-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.roi-vs-table td:first-child { font-weight: 600; color: var(--text-primary); }
+.roi-vs-table tr:last-child td { border-bottom: none; }
+.roi-vs-table tr:hover td { background: rgba(118,34,215,0.02); }
+.roi-check { color: #1a7a1a; font-weight: 700; }
+.roi-cross { color: #cc3333; font-weight: 700; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .sidebar { width: 56px; padding: 16px 0; top: 64px; height: calc(100vh - 64px); }
+  .sidebar-nav-item span:not(.nav-icon) { display: none; }
+  .sidebar-section-label { display: none; }
+  .sidebar-divider { margin: 8px 10px; }
+  .page { padding: 20px 16px 40px; }
+  .pillars { grid-template-columns: 1fr; }
+  .pillar:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+  .pillar:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+  .sc-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .sc-header { grid-template-columns: 1fr; }
+  .hero { padding: 32px 28px; }
+  .hero h1 { font-size: 28px; }
+  .stats-row { flex-wrap: wrap; }
+  .contact-cards-row { grid-template-columns: 1fr; }
+  .roi-grid { grid-template-columns: 1fr; }
+  .roi-grid-3 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<header class="topbar">
+  <div class="topbar-logos">
+    <!-- EH logo — larger -->
+    <svg class="topbar-eh-logo" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#fdfbff" d="M108.11,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.51-.28.7-.06l3.03,3.34c.15.16.16.42.02.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.72-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM101.94,249.36h10.94c.28,0,.48-.25.44-.52-.51-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM155.17,250.53c0-4.4-1.73-6.5-5.15-6.5s-5.48,2.43-5.48,6.83v12.47c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.38c0-4.86-1.4-6.93-4.91-6.93-4.12,0-5.71,3.74-5.71,7.72v11.58c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.49,3.31c-.07.49.59.72.83.29,1.49-2.69,3.89-4.71,7.69-4.71,3.06,0,5.96,1.43,7.42,4.79.15.34.62.35.8.03,1.51-2.72,3.97-4.82,7.69-4.82,4.91,0,8.65,3.41,8.65,10.67v13.54c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.8h0ZM180.05,264.38c-3.51,0-6.06-1.4-7.67-3.58-.25-.34-.8-.16-.8.27v11.38c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-32.28c0-.25.2-.44.44-.44h4.28c.27,0,.48.24.44.51l-.42,3.04c-.07.48.57.71.82.3,1.56-2.6,4.29-4.45,8.42-4.45,5.94,0,10.67,4.4,10.67,12.63s-4.72,12.63-10.67,12.63h0ZM171.58,251.8c0,5.38,2.81,7.86,6.69,7.86s6.6-2.43,6.6-7.86-2.67-7.91-6.6-7.91-6.69,2.48-6.69,7.91ZM194.64,229.38h4.63c.25,0,.44.2.44.44v33.5c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-33.5c0-.25.2-.44.44-.44ZM215.81,264.38c-6.92,0-12.77-4.45-12.77-12.63s5.85-12.63,12.77-12.63,12.77,4.54,12.77,12.63-5.8,12.63-12.77,12.63ZM208.89,251.75c0,5.34,3.23,7.86,6.92,7.86s6.93-2.53,6.93-7.86-3.23-7.81-6.93-7.81-6.92,2.57-6.92,7.81ZM232.74,273.36c-2.03,0-3.9-.6-5.17-1.57-.18-.14-.24-.38-.13-.57l2.04-3.74c.14-.27.51-.31.72-.09.8.83,1.82,1.3,3.01,1.3,1.68,0,3.04-1.36,4.12-4.82l.05-.05-9.75-23.48c-.12-.29.09-.62.41-.62h4.97c.19,0,.35.11.42.28l6.21,16.26c.15.38.69.38.83,0l6.12-16.25c.06-.17.23-.29.42-.29h4.78c.32,0,.53.32.41.62l-10.41,25.12c-2.43,5.89-5.14,7.91-9.03,7.91h0ZM287.17,250.53c0-4.4-1.73-6.5-5.15-6.5s-5.48,2.43-5.48,6.83v12.47c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.38c0-4.86-1.4-6.93-4.91-6.93-4.12,0-5.71,3.74-5.71,7.72v11.58c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.33c.27,0,.48.24.44.51l-.49,3.31c-.07.49.59.72.83.29,1.49-2.69,3.89-4.71,7.69-4.71,3.06,0,5.96,1.43,7.42,4.79.15.34.62.35.8.03,1.51-2.72,3.97-4.82,7.69-4.82,4.91,0,8.65,3.41,8.65,10.67v13.54c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-12.8h0ZM308.3,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.5-.28.7-.06l3.03,3.34c.15.16.16.42.01.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.73-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM302.13,249.36h10.94c.28,0,.48-.25.44-.52-.52-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM340.16,250.77c0-4.96-1.87-6.79-5.57-6.79s-5.99,2.81-5.99,7.11v12.23c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.51,3.54c-.07.48.58.71.82.29,1.63-2.86,4.25-4.95,8.14-4.95,5.05,0,8.98,3.32,8.98,11.04v13.17c0,.25-.2.44-.44.44h-4.68c-.25,0-.44-.2-.44-.44v-12.56h0ZM352.21,254.7l-.05-9.94c0-.25-.2-.44-.44-.44h-3.93c-.25,0-.44-.2-.44-.44v-3.69c0-.25.2-.44.44-.44h3.93c.25,0,.44-.2.44-.44v-4.67c0-.16.09-.31.23-.39l5.34-3.01h.05v8.07c0,.25.2.44.44.44h8.05c.25,0,.44.2.44.44v3.69c0,.25-.2.44-.44.44h-8.05c-.25,0-.44.2-.44.44v9.47c0,3.88,1.21,5.34,3.55,5.34,1.87,0,3.38-.93,4.41-2.19.19-.23.54-.22.71.03l2.3,3.36c.12.18.1.42-.06.57-1.45,1.44-4.25,3.05-8.11,3.05-5.2,0-8.38-3.18-8.38-9.68h0ZM394.42,250.39c0-4.63-1.83-6.46-5.15-6.46-4.91,0-6.46,3.84-6.46,7.53v11.86c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44v-33.5c0-.25.2-.44.44-.44h4.63c.25,0,.44.2.44.44v13.04c0,.43.56.62.81.26,1.63-2.4,4.07-4.01,7.47-4.01,4.68,0,8.84,3.09,8.84,11.09l.05,13.12c0,.25-.2.45-.44.45h-4.67c-.25,0-.44-.2-.44-.44v-12.94h0ZM415.58,259.66c3.71,0,6.15-1.79,7.42-3.79.16-.25.51-.28.7-.06l3.03,3.34c.15.16.16.42.02.58-2.19,2.58-5.95,4.66-11.36,4.66-8.24,0-12.44-5.48-12.44-12.58s4.73-12.68,12.4-12.68,11.33,4.8,11.28,13.64c0,.24-.2.44-.45.44h-16.96c-.28,0-.49.25-.44.53.67,3.91,3.35,5.93,6.8,5.93h0ZM409.41,249.36h10.94c.28,0,.48-.25.44-.52-.52-3.22-2.52-5-5.45-5-2.75,0-5.41,1.59-6.36,4.95-.08.28.13.57.43.57ZM430.37,263.33v-23.16c0-.25.2-.44.44-.44h4.32c.27,0,.48.24.44.51l-.39,2.48c-.08.49.59.72.83.28,1.34-2.42,3.27-3.88,5.86-3.88,1.65,0,3.26.49,4.53,1.42.17.13.22.36.13.55l-2.1,4.4c-.13.27-.47.33-.7.14-.92-.8-2.07-1.22-3.31-1.22-2.67,0-4.54,2.24-4.54,8.42v10.5c0,.25-.2.44-.44.44h-4.63c-.25,0-.44-.2-.44-.44h0ZM458.24,264.38c-6.92,0-12.77-4.45-12.77-12.63s5.85-12.63,12.77-12.63,12.77,4.54,12.77,12.63-5.8,12.63-12.77,12.63ZM451.32,251.75c0,5.34,3.23,7.86,6.92,7.86s6.93-2.53,6.93-7.86-3.23-7.81-6.93-7.81-6.92,2.57-6.92,7.81Z"/>
+      <path fill="#fdfbff" d="M70.11,257.33c.8,0,1.55.44,1.95,1.15.38.68.37,1.49-.03,2.16l-.02.03c-2.79,4.44-7.28,7.67-12.34,8.88-1.38.33-2.35,1.58-2.35,3.05,0,1.69,1.36,3.07,3.04,3.07.24,0,.47-.03.71-.08,5.65-1.35,10.78-4.6,14.43-9.17,3.77-4.7,5.76-10.37,5.76-16.4s-1.99-11.7-5.76-16.4c-3.65-4.58-8.78-7.84-14.43-9.18-.23-.06-.47-.08-.71-.08-1.67,0-3.04,1.37-3.04,3.07,0,1.46.96,2.71,2.35,3.05,5.05,1.21,9.55,4.44,12.33,8.86l.03.06c.4.66.41,1.47.03,2.15-.4.71-1.15,1.15-1.95,1.15-.33,0-.64-.07-.95-.21-1.1-.52-2.29-.78-3.52-.78-4.4,0-8.04,3.44-8.29,7.83v.05c-.01.13-.02.23-.02.33v.2c0,.1,0,.21.02.33v.05c.25,4.39,3.9,7.84,8.29,7.84,1.23,0,2.42-.27,3.52-.78.3-.14.62-.21.95-.21"/>
+      <path fill="#fdfbff" d="M49.88,224.36c-.24,0-.47.03-.71.08-5.65,1.34-10.78,4.6-14.43,9.17-3.77,4.71-5.76,10.37-5.76,16.4s1.99,11.7,5.76,16.4c3.66,4.57,8.78,7.83,14.43,9.17.24.06.47.08.71.08,1.67,0,3.04-1.37,3.04-3.07,0-1.46-.96-2.71-2.35-3.05-5.05-1.21-9.55-4.44-12.33-8.87l-.03-.05c-.41-.68-.42-1.48-.03-2.16.4-.71,1.15-1.15,1.95-1.15.33,0,.64.07.95.21,1.1.52,2.29.78,3.52.78,4.4,0,8.04-3.44,8.29-7.83v-.05c.01-.12.02-.22.02-.33v-.2c0-.1,0-.21-.02-.33v-.05c-.25-4.39-3.9-7.84-8.29-7.84-1.23,0-2.42.27-3.52.78-.3.14-.62.21-.95.21-.8,0-1.55-.44-1.95-1.15-.38-.68-.37-1.49.03-2.16v-.02l.02-.03c2.78-4.43,7.28-7.66,12.33-8.87,1.38-.33,2.35-1.58,2.35-3.05,0-1.69-1.36-3.07-3.04-3.07"/>
+    </svg>
+    <span class="topbar-sep">×</span>
+    <!-- Simpro logo — smaller (1/15th scale relative to EH) -->
+    <svg class="topbar-sim-logo" viewBox="0 0 1280 263.49" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#fdfbff" d="M2.12,215.99c-.89-1.19-1.52-2.4-1.87-3.65-.35-1.24-.33-2.52,.09-3.82,.41-1.31,1.34-2.67,2.75-4.1l29.55-28.13c1.66-1.66,3.38-2.49,5.16-2.49,1.31,0,2.64,.35,4.01,1.07,1.36,.71,2.7,1.66,4.01,2.85,3.21,2.61,6.79,5.49,10.77,8.63,3.98,3.15,8.22,6.05,12.73,8.72,4.51,2.67,9.26,4.9,14.24,6.68,4.98,1.78,10.08,2.67,15.31,2.67,5.81,0,10.56-.65,14.24-1.96,3.68-1.3,6.59-3.03,8.73-5.16,2.13-2.13,3.59-4.66,4.36-7.57,.77-2.91,1.15-5.96,1.15-9.17,0-3.56-1.24-6.73-3.73-9.52-2.5-2.79-5.58-5.22-9.26-7.3-3.68-2.08-7.54-3.89-11.57-5.43-4.03-1.54-7.59-2.85-10.68-3.91-13.64-4.75-25.72-9.91-36.22-15.49-10.51-5.58-19.25-11.75-26.26-18.51-7-6.77-12.31-14.24-15.93-22.43-3.62-8.19-5.43-17.27-5.43-27.23,0-10.56,2.25-20.18,6.77-28.84,4.51-8.66,10.83-16.05,18.96-22.16,8.13-6.11,17.86-10.86,29.19-14.24C74.5,2.1,87.06,.41,100.82,.41c7.71,0,15.51,.8,23.41,2.4,7.89,1.6,15.49,3.89,22.79,6.85,7.3,2.97,14.12,6.5,20.47,10.59,6.35,4.09,11.72,8.57,16.11,13.44,2.37,2.73,3.56,5.34,3.56,7.83s-1.37,5.1-4.1,7.83l-26.17,27.95c-1.78,1.78-3.62,2.67-5.52,2.67-1.54,0-3.02-.45-4.45-1.34-1.43-.89-2.91-1.99-4.45-3.29-6.17-5.58-12.52-10.03-19.05-13.35-6.53-3.32-14-4.99-22.43-4.99-3.2,0-6.4,.27-9.61,.8-3.21,.53-6.08,1.48-8.64,2.85-2.55,1.37-4.62,3.15-6.23,5.34-1.6,2.2-2.4,4.9-2.4,8.1s.89,5.96,2.67,8.27c1.78,2.32,4.39,4.45,7.83,6.41,3.44,1.96,7.63,3.86,12.55,5.7,4.92,1.84,10.47,3.77,16.65,5.79,12.1,4.04,23.17,8.25,33.2,12.64,10.03,4.39,18.63,9.59,25.81,15.58,7.18,5.99,12.75,13.15,16.73,21.45,3.98,8.31,5.97,18.4,5.97,30.26,0,12.46-2.46,23.8-7.38,34-4.93,10.21-11.75,18.9-20.47,26.08-8.73,7.18-19.03,12.73-30.89,16.64-11.87,3.91-24.8,5.88-38.81,5.88-8.78,0-17.5-1.16-26.17-3.47-8.66-2.31-17-5.43-25.01-9.35-8.01-3.91-15.55-8.48-22.61-13.71-7.06-5.22-13.44-10.8-19.14-16.73-1.07-1.19-2.04-2.37-2.93-3.56ZM212.47,13.41c0-5.1,2.5-7.65,7.48-7.65h51.1c4.98,0,7.48,2.55,7.48,7.65V252.13c0,4.98-2.5,7.48-7.48,7.48h-51.1c-4.98,0-7.48-2.49-7.48-7.48V13.41ZM372.4,114.7l-14.42,137.43c-.24,2.49-.92,4.36-2.05,5.6-1.13,1.25-2.93,1.87-5.43,1.87h-48.59c-2.5,0-4.42-.62-5.79-1.87-1.37-1.24-1.93-3.12-1.7-5.6L319.88,13.41c.24-2.49,.92-4.39,2.05-5.7,1.13-1.3,2.93-1.96,5.42-1.96h59.82c2.49,0,4.15,.62,4.99,1.87,.83,1.25,1.66,3.18,2.49,5.79l46.64,153.45L487.93,13.41c.83-2.61,1.65-4.54,2.49-5.79,.83-1.24,2.49-1.87,4.99-1.87h59.81c2.5,0,4.3,.65,5.43,1.96,1.13,1.31,1.81,3.21,2.05,5.7l25.45,238.72c.24,2.49-.33,4.36-1.69,5.6-1.36,1.25-3.29,1.87-5.79,1.87h-48.6c-2.49,0-4.3-.62-5.42-1.87-1.13-1.24-1.81-3.12-2.05-5.6l-13.89-134.05-39.87,133.69c-.95,3.09-1.96,5.16-3.02,6.23-1.07,1.07-2.85,1.6-5.34,1.6h-42.37c-2.49,0-4.3-.54-5.43-1.6-1.13-1.07-2.11-3.14-2.93-6.23l-39.34-137.07ZM603.46,13.41c0-2.49,.71-4.39,2.13-5.7,1.43-1.3,3.14-1.96,5.16-1.96h109.66c11.74,0,22.49,2.37,32.22,7.12,9.74,4.75,18.07,11.01,25.01,18.78,6.95,7.77,12.31,16.65,16.11,26.62,3.8,9.97,5.7,20.18,5.7,30.62s-1.87,20.38-5.6,30.18c-3.74,9.79-9.02,18.54-15.85,26.26-6.82,7.72-15.01,13.91-24.56,18.6-9.55,4.69-20.15,7.03-31.78,7.03h-52.33v81.18c0,4.98-2.61,7.48-7.84,7.48h-50.73c-4.87,0-7.29-2.49-7.29-7.48V13.41Zm65.87,46.64v56.96h36.85c4.15,0,7.86-.8,11.13-2.4,3.26-1.6,5.99-3.74,8.18-6.41,2.2-2.67,3.89-5.72,5.08-9.16,1.18-3.44,1.78-6.94,1.78-10.5s-.6-6.85-1.78-10.24c-1.19-3.38-2.91-6.44-5.16-9.17-2.26-2.73-4.99-4.92-8.19-6.59-3.21-1.66-6.88-2.49-11.04-2.49h-36.85ZM810.67,13.41c0-1.89,.59-3.65,1.78-5.25,1.18-1.6,3.02-2.4,5.51-2.4h113.39c12.11,0,23.11,2.43,33.02,7.3,9.91,4.87,18.43,11.28,25.55,19.23,7.12,7.95,12.63,17.06,16.56,27.32,3.91,10.27,5.87,20.74,5.87,31.42,0,6.76-1.01,13.47-3.02,20.11-2.02,6.65-4.87,13-8.55,19.05-3.68,6.05-8.07,11.72-13.17,17-5.1,5.28-10.74,9.88-16.91,13.8l48.95,91.15c.95,1.66,1.07,3.32,.35,4.98-.71,1.67-2.25,2.49-4.62,2.49h-61.6c-2.38,0-4.16-.5-5.34-1.51-1.19-1.01-2.49-2.88-3.91-5.61l-40.41-77.26h-27.59v76.9c0,4.98-2.5,7.48-7.48,7.48h-51.09c-4.87,0-7.29-2.49-7.29-7.48V13.41Zm65.87,45.22v61.95h37.91c4.51,0,8.64-.89,12.38-2.67,3.73-1.78,6.94-4.1,9.61-6.94,2.67-2.85,4.74-6.11,6.23-9.79,1.48-3.68,2.23-7.48,2.23-11.39s-.74-7.53-2.23-11.21c-1.49-3.68-3.59-7-6.32-9.97-2.73-2.96-5.93-5.37-9.61-7.21-3.68-1.84-7.77-2.76-12.29-2.76h-37.91ZM1149.04,1.59c-72.33,0-130.97,58.63-130.97,130.96s58.64,130.94,130.97,130.94,130.96-58.62,130.96-130.94S1221.37,1.59,1149.04,1.59Zm75.77,143.43l-9.89,3.07c-13.06,5.76-22.48,22.08-20.94,36.27l2.28,10.1c.79,7.31-2.5,9.41-5.89,11.37-3.38,1.95-6.86,3.76-12.79-.58l-7.61-7.03c-11.52-8.43-30.36-8.43-41.88,0l-7.61,7.03c-5.83,4.27-9.24,2.5-12.62,.67-3.5-1.89-6.86-4.03-6.06-11.46l2.28-10.1c1.54-14.19-7.88-30.51-20.94-36.27l-9.89-3.07c-6.72-2.97-6.9-6.87-6.9-10.78s.17-7.82,6.9-10.78l9.89-3.07c13.06-5.76,22.48-22.08,20.94-36.27l-2.28-10.11c-.79-7.31,2.5-9.41,5.89-11.36,3.39-1.95,6.86-3.76,12.79,.58l7.61,7.03c11.52,8.43,30.36,8.43,41.88,0l7.61-7.03c5.93-4.34,9.4-2.54,12.79-.58,3.39,1.95,6.68,4.06,5.89,11.36l-2.28,10.11c-1.54,14.19,7.88,30.51,20.94,36.27l9.89,3.07c6.73,2.97,6.9,6.87,6.9,10.78s-.17,7.82-6.9,10.78Z"/>
+    </svg>
+  </div>
+  <div class="topbar-right">Sales Enablement Guide</div>
+</header>
+
+<!-- ── APP BODY ── -->
+<div class="app-body">
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-section-label">Main</div>
+  <button class="sidebar-nav-item active" onclick="showPage('overview')" data-page="overview">
+    <span class="nav-icon">⚡</span><span>Overview</span>
+  </button>
+  <button class="sidebar-nav-item" onclick="showPage('platforms')" data-page="platforms">
+    <span class="nav-icon">🏗</span><span>Platforms</span>
+  </button>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section-label">Scheduling</div>
+  <button class="sidebar-nav-item" onclick="showPage('scenarios')" data-page="scenarios">
+    <span class="nav-icon">🗺</span><span>Scheduling Scenarios</span>
+  </button>
+  <button class="sidebar-nav-item" onclick="showPage('decision')" data-page="decision">
+    <span class="nav-icon">🎯</span><span>Scheduling Tool Decider</span>
+  </button>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section-label">Integration</div>
+  <button class="sidebar-nav-item" onclick="showPage('integration')" data-page="integration">
+    <span class="nav-icon">🔌</span><span>Integration Advisor</span>
+  </button>
+  <button class="sidebar-nav-item" onclick="showPage('roi')" data-page="roi">
+    <span class="nav-icon">📈</span><span>Integration ROI</span>
+  </button>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-section-label">Reference</div>
+  <button class="sidebar-nav-item" onclick="showPage('myths')" data-page="myths">
+    <span class="nav-icon">🚫</span><span>Myths</span>
+  </button>
+  <button class="sidebar-nav-item" onclick="showPage('cheatsheet')" data-page="cheatsheet">
+    <span class="nav-icon">📋</span><span>Cheat Sheet</span>
+  </button>
+</aside>
+
+<!-- ── CONTENT ── -->
+<main class="content-area">
+
+<!-- ════════════════ OVERVIEW ════════════════ -->
+<div id="page-overview" class="page active">
+
+  <div class="hero">
+    <div class="hero-tag">⚡ Sales Enablement Guide</div>
+    <h1>Three platforms. <em>One clear story.</em></h1>
+    <p>Everything you need to position Employment Hero confidently to any Simpro prospect. Know which tool wins the moment — and why.</p>
+    <div class="hero-chips">
+      <div class="hero-chip" onclick="showPage('scenarios')">→ Jump to Scenarios</div>
+      <div class="hero-chip" onclick="showPage('decision')">→ Decision Maker Tool</div>
+      <div class="hero-chip" onclick="showPage('myths')">→ Bust the Myths</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Platforms, distinct roles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Scenarios covered A–E</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Golden rule to remember</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Myths debunked</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-bottom:14px">
+    <h2>Your partnership contacts</h2>
+    <span class="section-tag">Key people</span>
+  </div>
+
+  <div class="contact-cards-row">
+    <div class="contact-card">
+      <div class="contact-avatar avatar-eh">CP</div>
+      <div class="contact-info">
+        <div class="contact-platform-tag eh">Employment Hero</div>
+        <div class="contact-name">Courtney Pomerenke</div>
+        <div class="contact-title">Senior Partnership Manager</div>
+        <a class="contact-email" href="/cdn-cgi/l/email-protection#91f2fee4e3e5fff4e8bfe1fefcf4e3f4fffaf4d1f4fce1fdfee8fcf4ffe5f9f4e3febff2fefc">✉ <span class="__cf_email__" data-cfemail="d8bbb7adaaacb6bda1f6a8b7b5bdaabdb6b3bd98bdb5a8b4b7a1b5bdb6acb0bdaab7f6bbb7b5">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <div class="contact-card sim">
+      <div class="contact-avatar avatar-sim">AM</div>
+      <div class="contact-info">
+        <div class="contact-platform-tag sim">Simpro</div>
+        <div class="contact-name">Addison Mincham</div>
+        <div class="contact-title">ANZ Partnership Manager</div>
+        <a class="contact-email" href="/cdn-cgi/l/email-protection#452421212c362a2b6b282c2b262d242805362c2835372a6b262a286b2430">✉ <span class="__cf_email__" data-cfemail="741510101d071b1a5a191d1a171c151934071d1904061b5a171b195a1501">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="golden-rule">
+    <div class="golden-rule-icon">⚖️</div>
+    <div class="golden-rule-text">
+      <div class="golden-rule-label">The golden rule</div>
+      <div class="golden-rule-body">
+        Timesheet lodgement and approval happens in either <strong>Simpro</strong> or <strong>EH HR</strong> — never both for the same employee. <strong>EH Payroll always receives the approved data and runs the pay.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>What does each platform answer?</h2>
+    <span class="section-tag">Core distinction</span>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar simpro">
+      <div class="pillar-logo">
+        <span class="pillar-badge badge-blue">SIMPRO</span>
+      </div>
+      <h4>"Who is doing which job, where — and what did that labour cost the job?"</h4>
+      <ul>
+        <li>Job-linked scheduling & dispatch</li>
+        <li>Field tech time capture (Simpro Mobile)</li>
+        <li>Timesheet approval by operations supervisor</li>
+        <li>Job cost actuals & profitability reporting</li>
+        <li>Links time to billable jobs & work orders</li>
+      </ul>
+    </div>
+    <div class="pillar ehhr">
+      <div class="pillar-logo">
+        <span class="pillar-badge badge-purple">EH HR PLATFORM</span>
+      </div>
+      <h4>"Who is rostered for which shift — and have they lodged their timesheet?"</h4>
+      <ul>
+        <li>Shift rostering for fixed-site or shift staff</li>
+        <li>Employee timesheet lodgement (EH Work App / Hero Time Clock)</li>
+        <li>Manager timesheet approval within EH HR</li>
+        <li>Shift bidding, swapping & availability</li>
+        <li>Passes approved timesheets to EH Payroll</li>
+      </ul>
+    </div>
+    <div class="pillar ehpay">
+      <div class="pillar-logo">
+        <span class="pillar-badge badge-green">EH PAYROLL</span>
+      </div>
+      <h4>"What do we owe each employee this pay period — and is it award-compliant?"</h4>
+      <ul>
+        <li>Receives approved timesheets from EH HR or Simpro (SyncEzy)</li>
+        <li>Modern Award Pay Conditions Engine</li>
+        <li>Pay run — gross wages, PAYG, deductions</li>
+        <li>STP Phase 2 reporting to ATO</li>
+        <li>Superannuation processing (Payday Super)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>The critical data flow</h2>
+    <span class="section-tag">How time becomes pay</span>
+  </div>
+  <div class="flow-wrap">
+    <div class="flow-title">Time capture → lodgement → payroll</div>
+    <div class="flow-svg-wrap">
+      <svg width="100%" viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg" style="min-width:640px">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#a569ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#bafc58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <!-- SIMPRO flow: top row -->
+        <!-- Simpro box -->
+        <rect x="40" y="30" width="150" height="60" rx="12" fill="#ddeeff" stroke="#6699cc" stroke-width="1"/>
+        <text x="115" y="57" text-anchor="middle" font-family="Lexend,sans-serif" font-size="13" font-weight="600" fill="#004499">Simpro Mobile</text>
+        <text x="115" y="75" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#336699">Field clock-on/off</text>
+
+        <!-- Arrow -->
+        <line x1="192" y1="60" x2="268" y2="60" stroke="#a569ff" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="230" y="51" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#7622d7">Simpro</text>
+        <text x="230" y="63" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#7622d7">approval</text>
+
+        <!-- SyncEzy -->
+        <rect x="270" y="30" width="130" height="60" rx="12" fill="#f3ecff" stroke="#bb8eff" stroke-width="1"/>
+        <text x="335" y="57" text-anchor="middle" font-family="Lexend,sans-serif" font-size="13" font-weight="600" fill="#460078">SyncEzy</text>
+        <text x="335" y="75" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#7622d7">Integration</text>
+
+        <!-- Arrow to EH Payroll (top) -->
+        <line x1="402" y1="60" x2="560" y2="60" stroke="#a569ff" stroke-width="1.5" marker-end="url(#arr)"/>
+
+        <!-- EH HR flow: bottom row -->
+        <rect x="40" y="120" width="150" height="60" rx="12" fill="#f3ecff" stroke="#bb8eff" stroke-width="1"/>
+        <text x="115" y="147" text-anchor="middle" font-family="Lexend,sans-serif" font-size="13" font-weight="600" fill="#460078">EH Work App</text>
+        <text x="115" y="165" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#7622d7">/ Hero Time Clock</text>
+
+        <!-- Arrow -->
+        <line x1="192" y1="150" x2="268" y2="150" stroke="#a569ff" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="230" y="141" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#7622d7">Manager</text>
+        <text x="230" y="153" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#7622d7">approves</text>
+
+        <!-- EH HR -->
+        <rect x="270" y="120" width="130" height="60" rx="12" fill="#f3ecff" stroke="#bb8eff" stroke-width="1"/>
+        <text x="335" y="147" text-anchor="middle" font-family="Lexend,sans-serif" font-size="13" font-weight="600" fill="#460078">EH HR</text>
+        <text x="335" y="165" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="#7622d7">Platform</text>
+
+        <!-- Arrow to EH Payroll (bottom) -->
+        <line x1="402" y1="150" x2="560" y2="150" stroke="#a569ff" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="480" y="168" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#7622d7">Native</text>
+
+        <!-- EH Payroll (shared destination) -->
+        <rect x="562" y="50" width="190" height="110" rx="14" fill="#2d0649" stroke="#a569ff" stroke-width="1.5"/>
+        <text x="657" y="88" text-anchor="middle" font-family="Lexend,sans-serif" font-size="14" font-weight="700" fill="#fdfbff">EH Payroll</text>
+        <text x="657" y="108" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="rgba(253,251,255,0.7)">Award rules engine</text>
+        <text x="657" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="rgba(253,251,255,0.7)">Pay run execution</text>
+        <text x="657" y="142" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" fill="rgba(253,251,255,0.7)">STP + Super</text>
+
+        <!-- Arrow to Payslips -->
+        <line x1="754" y1="105" x2="840" y2="105" stroke="#bafc58" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <rect x="842" y="78" width="100" height="54" rx="10" fill="#f0ffd4" stroke="#80c820" stroke-width="1"/>
+        <text x="892" y="101" text-anchor="middle" font-family="Lexend,sans-serif" font-size="13" font-weight="600" fill="#3a6600">Payslips</text>
+        <text x="892" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#5a8a00">STP · Super</text>
+
+        <!-- Labels -->
+        <text x="115" y="15" text-anchor="middle" font-family="Lexend,sans-serif" font-size="10" font-weight="700" fill="#004499" letter-spacing="0.5">SIMPRO FLOW</text>
+        <text x="115" y="107" text-anchor="middle" font-family="Lexend,sans-serif" font-size="10" font-weight="700" fill="#7622d7" letter-spacing="0.5">EH HR FLOW</text>
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════ PLATFORMS ════════════════ -->
+<div id="page-platforms" class="page">
+  <div class="section-header" style="margin-bottom:24px">
+    <h2>Platform deep dive</h2>
+    <span class="section-tag">What each platform owns</span>
+  </div>
+
+  <div class="grid-3">
+    <div class="card card-accent">
+      <div class="card-icon icon-purple">📅</div>
+      <h3>Simpro: Scheduling</h3>
+      <p>Dispatches field techs to specific customer jobs. Manages work orders, job sections, and cost centres. The <strong>only</strong> platform that links time to a billable job.</p>
+    </div>
+    <div class="card card-accent">
+      <div class="card-icon icon-purple">📱</div>
+      <h3>Simpro Mobile</h3>
+      <p>Field technicians clock on/off tied to a job card. GPS tracking, job status updates, materials capture. Time is coded against job number automatically.</p>
+    </div>
+    <div class="card card-accent">
+      <div class="card-icon icon-purple">🔗</div>
+      <h3>SyncEzy Integration</h3>
+      <p>Locked Simpro timesheets flow to EH Payroll. This is the bridge between Simpro's job-costing world and EH Payroll's award compliance engine.</p>
+    </div>
+    <div class="card card-accent-lime">
+      <div class="card-icon icon-lime">🗓</div>
+      <h3>EH HR: Rostering</h3>
+      <p>Builds shift patterns for fixed-site or shift-based staff. Employees view and confirm shifts via EH Work App. No concept of a "job" — only shifts at locations.</p>
+    </div>
+    <div class="card card-accent-lime">
+      <div class="card-icon icon-lime">⏱</div>
+      <h3>Hero Time Clock</h3>
+      <p>Tablet-based clock-in at fixed work sites. Feeds time into EH HR as a timesheet. Manager confirms in EH HR before data moves to Payroll.</p>
+    </div>
+    <div class="card card-accent-lime">
+      <div class="card-icon icon-lime">✅</div>
+      <h3>EH HR: Approvals</h3>
+      <p>Managers approve timesheets within EH HR. Shift bidding, swapping, and availability management. Award cost visibility per shift before publishing.</p>
+    </div>
+    <div class="card card-accent-cyan" style="grid-column: span 3">
+      <div class="card-icon icon-cyan">⚖️</div>
+      <h3>EH Payroll: Award Engine</h3>
+      <p>Receives approved timesheets from either Simpro (SyncEzy) or EH HR (native). Applies legally binding Modern Award rules — penalty rates, overtime, allowances. Executes the pay run: gross wages, PAYG, deductions. STP Phase 2, superannuation (Payday Super), payslip generation. <strong>This is the payroll system of record for all staff.</strong></p>
+    </div>
+  </div>
+
+  <div class="golden-rule">
+    <div class="golden-rule-icon">⚠️</div>
+    <div class="golden-rule-text">
+      <div class="golden-rule-label">Key distinction</div>
+      <div class="golden-rule-body">
+        <strong>Simpro schedule rate multipliers (1.5x, 2x)</strong> are for job-costing only — not for legal wage calculation. EH Payroll's Pay Conditions Engine applies the <strong>legally binding Modern Award rules</strong> when processing wages.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>Mobile tools compared</h2>
+    <span class="section-tag">What employees use</span>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#004499;font-family:Lexend,sans-serif;margin-bottom:10px">Simpro Mobile</div>
+      <p style="font-size:13.5px;color:var(--text-secondary)">Clock on/off tied to a job card. GPS tracking. Job status updates. Materials capture. Used by field technicians attending customer sites.</p>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:var(--purple-deep);font-family:Lexend,sans-serif;margin-bottom:10px">EH Work App</div>
+      <p style="font-size:13.5px;color:var(--text-secondary)">Shift attendance capture. Timesheet lodgement. Roster visibility. Also used for payslip access and payroll self-service regardless of time capture method.</p>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#1a5c1a;font-family:Lexend,sans-serif;margin-bottom:10px">Hero Time Clock</div>
+      <p style="font-size:13.5px;color:var(--text-secondary)">Tablet-based at fixed work sites. Used by cleaners, warehouse staff, and site-based workers who don't carry a personal device.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ SCENARIOS ════════════════ -->
+<div id="page-scenarios" class="page">
+  <div class="section-header" style="margin-bottom:18px">
+    <h2>Scheduling scenario playbook</h2>
+    <span class="section-tag">Match the business</span>
+  </div>
+  <p style="color:var(--text-secondary);margin-bottom:22px;font-size:14px;">Select the scenario that best matches your prospect's workforce structure.</p>
+
+  <div class="scenario-tabs">
+    <button class="stab active" onclick="showScenario('a')">Scenario A — Simpro Only</button>
+    <button class="stab" onclick="showScenario('b')">Scenario B — EH HR Only</button>
+    <button class="stab" onclick="showScenario('c')">Scenario C — Hybrid</button>
+    <button class="stab" onclick="showScenario('d')">Scenario D — Multi-Division</button>
+  </div>
+
+  <!-- SCENARIO A -->
+  <div id="sc-a" class="scenario-panel active">
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div>
+          <h3>Simpro Only: Job Scheduling & Timesheets</h3>
+          <p>Field techs clock on/off against job cards. Timesheets approved in Simpro, then sent to EH Payroll for wage processing. EH HR exists for people management but rostering is not activated.</p>
+        </div>
+        <div class="sc-flow-badge">
+          <div class="flow-label">Data flow</div>
+          <div class="flow-val">
+            Simpro<br><span class="flow-arrow">↓</span><br>EH Payroll
+          </div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-grid">
+          <div class="sc-section">
+            <h4>Best fit when...</h4>
+            <ul>
+              <li><span class="sc-check">✓</span>Every labour hour must be costed against a specific job/quote</li>
+              <li><span class="sc-check">✓</span>Techs move between 3–6 short service calls per day</li>
+              <li><span class="sc-check">✓</span>Business invoices clients based on hours spent on site</li>
+              <li><span class="sc-check">✓</span>Job profitability reporting is critical</li>
+              <li><span class="sc-check">✓</span>Scheduling is reactive — no fixed roster is possible</li>
+              <li><span class="sc-check">✓</span>Staff need GPS and location tracking per job</li>
+            </ul>
+          </div>
+          <div class="sc-section">
+            <h4>Not a fit when...</h4>
+            <ul>
+              <li><span class="sc-cross">✗</span>Staff work predictable, repeating shift patterns</li>
+              <li><span class="sc-cross">✗</span>Modern Award penalty rate compliance is the primary concern</li>
+              <li><span class="sc-cross">✗</span>More than 20% casual employees with variable hours</li>
+              <li><span class="sc-cross">✗</span>Work is measured by site attendance, not job completion</li>
+            </ul>
+            <h4 style="margin-top:18px">Industries</h4>
+            <div class="sc-industries">
+              <span class="industry-tag">Electrical</span>
+              <span class="industry-tag">Plumbing</span>
+              <span class="industry-tag">HVAC</span>
+              <span class="industry-tag">Fire protection</span>
+              <span class="industry-tag">Security services</span>
+              <span class="industry-tag">Mechanical</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--gray-100);border-radius:var(--radius);padding:20px 22px;border-left:4px solid #0066cc">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#004499;font-family:Lexend,sans-serif;margin-bottom:8px">Example: Metro Electrical Services, Sydney NSW</div>
+          <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">22 licensed electricians across residential and commercial work.<br><br><strong style="color:var(--text-primary)">Scheduling:</strong> Each morning, scheduler dispatches techs from the Simpro calendar. A tech might do a fault-find at 7:30am, a switchboard quote at 10am, and a solar installation in the afternoon — three jobs, three customers.<br><br><strong style="color:var(--text-primary)">Time capture:</strong> Each tech clocks on via Simpro Mobile on arrival. Clock-off is automatic when they submit the job card. Time is coded against the job number and cost centre automatically.<br><br><strong style="color:var(--text-primary)">Approval:</strong> Week-end, the operations manager reviews and locks timesheets in Simpro Premium.<br><br><strong style="color:var(--text-primary)">Payroll:</strong> Approved timesheets flow to EH Payroll. Electrical Trades Award applied automatically. EH HR used for onboarding, leave, and performance — not timesheets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO B -->
+  <div id="sc-b" class="scenario-panel">
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div>
+          <h3>EH HR Rostering + EH Payroll (No Simpro)</h3>
+          <p>Staff work predictable, repeating shifts. Rosters built in EH HR. Employees lodge timesheets via EH Work App or Hero Time Clock. Approved data flows natively to EH Payroll.</p>
+        </div>
+        <div class="sc-flow-badge">
+          <div class="flow-label">Data flow</div>
+          <div class="flow-val">
+            EH Work App<br><span class="flow-arrow">↓</span><br>EH HR<br><span class="flow-arrow">↓</span><br>EH Payroll
+          </div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-grid">
+          <div class="sc-section">
+            <h4>Best fit when...</h4>
+            <ul>
+              <li><span class="sc-check">✓</span>Staff work same or similar shifts each week</li>
+              <li><span class="sc-check">✓</span>High proportion of casual and part-time employees</li>
+              <li><span class="sc-check">✓</span>Complex penalty rates, shift allowances, and overtime</li>
+              <li><span class="sc-check">✓</span>Multiple fixed work sites or locations</li>
+              <li><span class="sc-check">✓</span>Award underpayment compliance risk is significant</li>
+              <li><span class="sc-check">✓</span>No per-job quoting or invoicing</li>
+            </ul>
+          </div>
+          <div class="sc-section">
+            <h4>Not a fit when...</h4>
+            <ul>
+              <li><span class="sc-cross">✗</span>Techs move between multiple customer sites per day</li>
+              <li><span class="sc-cross">✗</span>Job profitability reporting required per work order</li>
+              <li><span class="sc-cross">✗</span>Time must be linked to billable revenue per job</li>
+              <li><span class="sc-cross">✗</span>Scheduling is reactive and unpredictable</li>
+            </ul>
+            <h4 style="margin-top:18px">Industries</h4>
+            <div class="sc-industries">
+              <span class="industry-tag">Facilities management</span>
+              <span class="industry-tag">Commercial cleaning</span>
+              <span class="industry-tag">Security guarding</span>
+              <span class="industry-tag">Hospitality support</span>
+              <span class="industry-tag">Workshop / fabrication</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--gray-100);border-radius:var(--radius);padding:20px 22px;border-left:4px solid var(--purple-dark)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:var(--purple-deep);font-family:Lexend,sans-serif;margin-bottom:8px">Example: Commercial Cleaning Co, Melbourne VIC</div>
+          <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">95 cleaners across 18 fixed commercial sites.<br><br><strong style="color:var(--text-primary)">Rostering:</strong> Site managers build weekly rosters in EH HR by building. Cleaners view and confirm shifts via the EH Work App.<br><br><strong style="color:var(--text-primary)">Time capture:</strong> Cleaners clock in via tablets running Hero Time Clock at each site.<br><br><strong style="color:var(--text-primary)">Approval:</strong> Site managers approve timesheets in EH HR.<br><br><strong style="color:var(--text-primary)">Payroll:</strong> Approved data flows natively to EH Payroll. Cleaning Services Award applied — all penalty rates automated. No Simpro involvement. Work measured by site attendance, not job completion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO C -->
+  <div id="sc-c" class="scenario-panel">
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div>
+          <h3>Hybrid: Field Techs + Fixed-Shift Staff</h3>
+          <p>Same business, two different workforces. Field techs use Simpro. Fixed-site or workshop staff use EH HR. Both streams converge in one EH Payroll pay run.</p>
+        </div>
+        <div class="sc-flow-badge">
+          <div class="flow-label">Two paths, one pay run</div>
+          <div class="flow-val">
+            Simpro → EH Payroll<br><span class="flow-arrow">↓</span><br>EH HR → EH Payroll<br><span class="flow-arrow">↓</span><br>EH Payroll
+          </div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-grid">
+          <div class="sc-section">
+            <h4>Key rule</h4>
+            <ul>
+              <li><span class="sc-check">✓</span>Two separate approval paths — one payroll destination</li>
+              <li><span class="sc-check">✓</span>No employee submits timesheets in both systems</li>
+              <li><span class="sc-check">✓</span>Field staff: Simpro Mobile → Simpro approval → EH Payroll</li>
+              <li><span class="sc-check">✓</span>Fixed-site staff: EH Work App → EH HR approval → native</li>
+              <li><span class="sc-check">✓</span>EH Payroll consolidates all streams in one pay run</li>
+            </ul>
+          </div>
+          <div class="sc-section">
+            <h4>Common profile</h4>
+            <ul>
+              <li><span class="sc-check">✓</span>Electrical or mechanical businesses with a workshop</li>
+              <li><span class="sc-check">✓</span>Trade businesses that also run depot/admin staff</li>
+              <li><span class="sc-check">✓</span>Fire & security with both field techs and site staff</li>
+              <li><span class="sc-check">✓</span>50–300 employees across mixed role types</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background:var(--gray-100);border-radius:var(--radius);padding:20px 22px;border-left:4px solid var(--amber)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#7a4a00;font-family:Lexend,sans-serif;margin-bottom:8px">Example: Allied Mechanical Services, Brisbane QLD</div>
+          <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">45 field techs + 12 workshop fabricators.<br><br><strong style="color:var(--text-primary)">Field:</strong> Simpro dispatching, Simpro Mobile clock-on, weekly lock → EH Payroll.<br><br><strong style="color:var(--text-primary)">Workshop:</strong> EH HR rostering (three shifts), Hero Time Clock on floor, manager approves in EH HR → native to EH Payroll.<br><br>Manufacturing Award penalty rates automated. All 57 staff in one EH Payroll pay run per fortnight. Written policy: field labour owned by Simpro, fixed-shift owned by EH HR.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO D -->
+  <div id="sc-d" class="scenario-panel">
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div>
+          <h3>Multi-Division Enterprise</h3>
+          <p>Multiple divisions with different workforce types. Each division uses the right platform. Formal governance policy documents which system each division uses. EH Payroll is the single system of record.</p>
+        </div>
+        <div class="sc-flow-badge">
+          <div class="flow-label">Multiple streams</div>
+          <div class="flow-val">
+            Field → EH Payroll<br>Projects → EH Payroll<br>Cleaning → EH Payroll<br>Workshop → EH Payroll
+          </div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div style="overflow-x:auto;margin-bottom:20px">
+          <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:560px">
+            <thead>
+              <tr>
+                <th style="background:var(--purple-bg);color:var(--white);padding:10px 14px;text-align:left;font-family:Lexend,sans-serif;font-size:11.5px;border-radius:8px 0 0 0">Division</th>
+                <th style="background:var(--purple-bg);color:var(--white);padding:10px 14px;text-align:left;font-family:Lexend,sans-serif;font-size:11.5px">Scheduling</th>
+                <th style="background:var(--purple-bg);color:var(--white);padding:10px 14px;text-align:left;font-family:Lexend,sans-serif;font-size:11.5px">Time capture</th>
+                <th style="background:var(--purple-bg);color:var(--white);padding:10px 14px;text-align:left;font-family:Lexend,sans-serif;font-size:11.5px">Route to payroll</th>
+                <th style="background:var(--purple-bg);color:var(--white);padding:10px 14px;text-align:left;font-family:Lexend,sans-serif;font-size:11.5px;border-radius:0 8px 0 0">Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-primary);font-weight:500">Electrical — Reactive</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200)"><span class="platform-chip chip-simpro">Simpro</span></td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-secondary)">Simpro Mobile clock-on/off</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-secondary)">EH Payroll</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-muted);font-size:12px">Jobs vary daily; per-job costing</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-primary);font-weight:500;background:var(--gray-100)">Mechanical — Projects</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100)"><span class="platform-chip chip-simpro">Simpro</span></td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-secondary)">Simpro Mobile; approved by project</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-secondary)">EH Payroll</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-muted);font-size:12px">Multi-week projects; phase costing</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-primary);font-weight:500">FM Cleaning</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200)"><span class="platform-chip chip-ehhr">EH HR</span></td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-secondary)">Hero Time Clock at each site</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-secondary)">EH HR → EH Payroll (native)</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-muted);font-size:12px">Fixed contracts; high award complexity</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);color:var(--text-primary);font-weight:500;background:var(--gray-100)">Workshop / Fab</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100)"><span class="platform-chip chip-ehhr">EH HR</span></td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-secondary)">Hero Time Clock on floor</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-secondary)">EH HR → EH Payroll (native)</td>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100);color:var(--text-muted);font-size:12px">3 shifts; Manufacturing Award</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;color:var(--text-primary);font-weight:500">Admin & Management</td>
+                <td style="padding:10px 14px"><span class="platform-chip chip-ehpay">EH Payroll</span></td>
+                <td style="padding:10px 14px;color:var(--text-secondary)">EH HR timesheets for exceptions</td>
+                <td style="padding:10px 14px;color:var(--text-secondary)">EH HR → EH Payroll (native)</td>
+                <td style="padding:10px 14px;color:var(--text-muted);font-size:12px">Salaried; minimal complexity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="background:var(--gray-100);border-radius:var(--radius);padding:20px 22px;border-left:4px solid var(--cyan)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.7px;color:#006699;font-family:Lexend,sans-serif;margin-bottom:8px">Example: Consolidated Building Services (CBS) — National</div>
+          <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">470 employees across 4 divisions. Written policy: field labour owned by Simpro, fixed-shift owned by EH HR, EH Payroll is the system of record for all staff.<br><br><strong style="color:var(--text-primary)">Electrical (field):</strong> Simpro dispatching, Simpro Mobile clock-on, fortnightly lock → EH Payroll.<br><br><strong style="color:var(--text-primary)">Mechanical (projects):</strong> Simpro project scheduling, Simpro Mobile time capture approved by project section → EH Payroll.<br><br><strong style="color:var(--text-primary)">FM Cleaning:</strong> EH HR rostering by building, Hero Time Clock at each site, site manager approves in EH HR → native to EH Payroll. Cleaning Services Award automated.<br><br><strong style="color:var(--text-primary)">Workshop / Fabrication:</strong> EH HR rostering (3 shifts), Hero Time Clock on floor, manager approves in EH HR → native to EH Payroll. Manufacturing Award penalty rates automated.<br><br>No employee submits timesheets in more than one system.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ DECISION TOOL ════════════════ -->
+<div id="page-decision" class="page">
+  <div class="section-header" style="margin-bottom:24px">
+    <h2>Platform decision tool</h2>
+    <span class="section-tag">Find the right fit</span>
+  </div>
+
+  <div class="decision-tool">
+    <h3>What scheduling tool does this workforce need?</h3>
+    <p>Answer the key questions about your prospect's business. The recommendation will update automatically.</p>
+
+    <div class="dt-questions">
+      <div class="dt-q">
+        <div class="dt-q-label">Question 1 of 4</div>
+        <div class="dt-q-text">Is time tracked against a specific billable job or quote?</div>
+        <div class="dt-options">
+          <button class="dt-btn" onclick="answer(0,'yes')">Yes — every hour tied to a job</button>
+          <button class="dt-btn" onclick="answer(0,'no')">No — work is shift or site based</button>
+          <button class="dt-btn" onclick="answer(0,'mixed')">Mixed — both types of work</button>
+        </div>
+      </div>
+      <div class="dt-q">
+        <div class="dt-q-label">Question 2 of 4</div>
+        <div class="dt-q-text">Do staff work predictable, repeating shift patterns?</div>
+        <div class="dt-options">
+          <button class="dt-btn" onclick="answer(1,'yes')">Yes — fixed rosters</button>
+          <button class="dt-btn" onclick="answer(1,'no')">No — reactive/variable scheduling</button>
+          <button class="dt-btn" onclick="answer(1,'mixed')">Some do, some don't</button>
+        </div>
+      </div>
+      <div class="dt-q">
+        <div class="dt-q-label">Question 3 of 4</div>
+        <div class="dt-q-text">Is Modern Award penalty rate calculation the primary payroll complexity?</div>
+        <div class="dt-options">
+          <button class="dt-btn" onclick="answer(2,'yes')">Yes — complex penalty rates</button>
+          <button class="dt-btn" onclick="answer(2,'no')">No — standard trade award</button>
+        </div>
+      </div>
+      <div class="dt-q">
+        <div class="dt-q-label">Question 4 of 4</div>
+        <div class="dt-q-text">Do staff move between 3+ different customer locations per day?</div>
+        <div class="dt-options">
+          <button class="dt-btn" onclick="answer(3,'yes')">Yes — multiple sites daily</button>
+          <button class="dt-btn" onclick="answer(3,'no')">No — one site per shift</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="dt-result" class="dt-result">
+      <div class="dt-result-tag">Recommendation</div>
+      <h4 id="dt-result-title"></h4>
+      <p id="dt-result-body"></p>
+      <button class="dt-reset" onclick="resetDecision()">↺ Start again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ MYTHS ════════════════ -->
+<div id="page-myths" class="page">
+  <div class="section-header" style="margin-bottom:8px">
+    <h2>Myth busters</h2>
+    <span class="section-tag">Common misconceptions</span>
+  </div>
+  <p style="color:var(--text-secondary);font-size:14px;margin-bottom:24px">Tap each myth to reveal the correct answer. Use these to handle objections in the field.</p>
+
+  <div id="myths-list"></div>
+</div>
+
+<!-- ════════════════ CHEAT SHEET ════════════════ -->
+<div id="page-cheatsheet" class="page">
+  <div class="section-header" style="margin-bottom:18px">
+    <h2>Quick reference cheat sheet</h2>
+    <span class="section-tag">Print or bookmark</span>
+  </div>
+
+  <div class="golden-rule" style="margin-bottom:28px">
+    <div class="golden-rule-icon">⚖️</div>
+    <div class="golden-rule-text">
+      <div class="golden-rule-label">The golden rule</div>
+      <div class="golden-rule-body">
+        <strong>Simpro captures time against jobs. EH HR rostering captures time against shifts. EH Payroll processes all approved time into wages. Each platform has a distinct role — and each is the best tool for that role.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:24px">
+    <table class="cheat-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Simpro</th>
+          <th>EH HR Platform</th>
+          <th>EH Payroll</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Core question</strong></td>
+          <td>"Who is doing which job, where?"</td>
+          <td>"Who is rostered for which shift?"</td>
+          <td>"What do we owe each employee?"</td>
+        </tr>
+        <tr>
+          <td><strong>Unit of work</strong></td>
+          <td>A specific job or quote at a customer site</td>
+          <td>A shift at a fixed work site</td>
+          <td>A pay period — all approved hours across all staff</td>
+        </tr>
+        <tr>
+          <td><strong>Time linked to</strong></td>
+          <td>Billable job, cost centre, job section</td>
+          <td>Roster shift and work site</td>
+          <td>Pay item, award rule, employee pay rate</td>
+        </tr>
+        <tr>
+          <td><strong>Primary output</strong></td>
+          <td>Job cost actuals → invoicing & profitability</td>
+          <td>Approved timesheets → attendance confirmed</td>
+          <td>Pay run → gross wages, PAYG, super, STP</td>
+        </tr>
+        <tr>
+          <td><strong>Who submits time</strong></td>
+          <td>Field tech via Simpro Mobile (job clock-on/off)</td>
+          <td>Employee via EH Work App or Hero Time Clock</td>
+          <td>N/A — receives approved timesheets</td>
+        </tr>
+        <tr>
+          <td><strong>Who approves</strong></td>
+          <td>Operations supervisor in Simpro Premium</td>
+          <td>Manager in EH HR platform</td>
+          <td>Payroll admin reviews before finalising pay run</td>
+        </tr>
+        <tr>
+          <td><strong>Overtime logic</strong></td>
+          <td>Schedule rate multipliers for job-costing only — NOT legal wage calculation</td>
+          <td>Hours vs rostered hours flagged; award rules applied in EH Payroll</td>
+          <td>Automated Modern Award Pay Conditions Engine — legally binding</td>
+        </tr>
+        <tr>
+          <td><strong>Mobile tool</strong></td>
+          <td>Simpro Mobile — job card clock on/off</td>
+          <td>EH Work App / Hero Time Clock</td>
+          <td>EH Work App — payslip access only</td>
+        </tr>
+        <tr>
+          <td><strong>Feeds into</strong></td>
+          <td>Job costing, invoicing, profitability → EH Payroll via SyncEzy</td>
+          <td>EH Payroll — approved timesheets push to pay run</td>
+          <td>Pay run execution, STP, super, payslips</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header">
+    <h2>Decision signals at a glance</h2>
+    <span class="section-tag">Diagnostic guide</span>
+  </div>
+  <div style="background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:24px">
+    <table class="cheat-table">
+      <thead>
+        <tr>
+          <th>Signal from prospect</th>
+          <th>Points to Simpro</th>
+          <th>Points to EH HR Rostering</th>
+          <th>Hybrid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Time tracked against a billable job?</td>
+          <td>✅ Yes → Simpro</td>
+          <td>No → EH HR</td>
+          <td>Partially → split by cohort</td>
+        </tr>
+        <tr>
+          <td>Invoice clients based on labour hours?</td>
+          <td>✅ Yes → Simpro time accuracy is essential</td>
+          <td>No → EH HR + EH Payroll</td>
+          <td>Some work types only</td>
+        </tr>
+        <tr>
+          <td>Predictable, repeating shift patterns?</td>
+          <td>No → Simpro scheduling fits better</td>
+          <td>✅ Yes → EH HR rostering</td>
+          <td>Mix within same workforce</td>
+        </tr>
+        <tr>
+          <td>Complex Modern Award penalty rates?</td>
+          <td>No — EH Payroll handles from Simpro data</td>
+          <td>✅ Yes → EH HR + EH Payroll Pay Conditions Engine</td>
+          <td>Yes, for some staff</td>
+        </tr>
+        <tr>
+          <td>Staff at 3+ locations per day?</td>
+          <td>✅ Yes → Simpro Mobile GPS essential</td>
+          <td>No → one fixed site</td>
+          <td>Mix of mobile and site-based</td>
+        </tr>
+        <tr>
+          <td>Job profitability reporting required?</td>
+          <td>✅ Yes → Simpro job costing is the only tool</td>
+          <td>No → not relevant to shift work</td>
+          <td>Field divisions only</td>
+        </tr>
+        <tr>
+          <td>More than 20% casual employees?</td>
+          <td>No — relatively stable field workforce</td>
+          <td>✅ Yes → EH HR rostering + EH Payroll compliance</td>
+          <td>Casual-heavy in some divisions</td>
+        </tr>
+        <tr>
+          <td>Significant underpayment risk?</td>
+          <td>Low — EH Payroll handles from Simpro export</td>
+          <td>✅ High — EH HR + EH Payroll is the compliant path</td>
+          <td>High in fixed-shift divisions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── NAVIGATION ──
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  document.querySelectorAll('.sidebar-nav-item').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  page.classList.add('active');
+  page.style.display = 'block';
+  const btn = document.querySelector('.sidebar-nav-item[data-page="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  const contentArea = document.querySelector('.content-area');
+  if (contentArea) contentArea.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── SCENARIOS ──
+function showScenario(id) {
+  document.querySelectorAll('.scenario-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sc-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── DECISION TOOL ──
+const answers = [null, null, null, null];
+function answer(q, val) {
+  answers[q] = val;
+  const row = document.querySelectorAll('.dt-q')[q];
+  row.querySelectorAll('.dt-btn').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+  evaluate();
+}
+
+function evaluate() {
+  if (answers.some(a => a === null)) return;
+  const [q0, q1, q2, q3] = answers;
+  let title, body;
+  if (q0 === 'yes' && q3 === 'yes') {
+    title = '✅ Simpro → EH Payroll';
+    body = 'This workforce needs Simpro for job-linked scheduling and time capture. Field techs clock on/off against job cards. Timesheets approved and locked in Simpro, then sent to EH Payroll for wage processing. EH HR for people management — rostering module not needed. This is Scenario A.';
+  } else if (q0 === 'no' && q1 === 'yes') {
+    title = '✅ EH HR Rostering → EH Payroll (native)';
+    body = 'This workforce works predictable shifts at fixed sites with no job-linked time. EH HR rostering is the right tool. Employees lodge via EH Work App or Hero Time Clock. Manager approval in EH HR. Native connection to EH Payroll. No Simpro involvement. This is Scenario B.';
+  } else if (q0 === 'mixed' || q1 === 'mixed') {
+    title = '✅ Hybrid: Simpro + EH HR → EH Payroll';
+    body = 'This business has two distinct workforce types. Field technicians use Simpro for job-linked time. Fixed-site or shift staff use EH HR rostering. Both streams flow to one EH Payroll pay run. Critical: no employee submits timesheets in both systems. This is Scenario C or E.';
+  } else if (q2 === 'yes') {
+    title = '✅ EH HR + EH Payroll Pay Conditions Engine';
+    body = 'Complex Modern Award penalty rates are the dominant compliance concern. EH HR rostering with the EH Payroll Pay Conditions Engine is the correct path. The Award engine automatically calculates all penalty rates, overtime, and allowances. This is Scenario B.';
+  } else {
+    title = '✅ Simpro → EH Payroll';
+    body = 'Based on your answers, this workforce benefits from Simpro for scheduling and time capture, with EH Payroll handling award compliance from the approved Simpro timesheet data. EH HR manages people — onboarding, leave, performance. This is Scenario A.';
+  }
+  const result = document.getElementById('dt-result');
+  document.getElementById('dt-result-title').textContent = title;
+  document.getElementById('dt-result-body').textContent = body;
+  result.classList.add('show');
+}
+
+function resetDecision() {
+  answers.fill(null);
+  document.querySelectorAll('.dt-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('dt-result').classList.remove('show');
+}
+
+// ── MYTHS ──
+const myths = [
+  {
+    claim: '"Rostering lives in EH Payroll."',
+    reality: 'Rostering is a feature of the EH HR platform. Employees view rosters, lodge timesheets, and have them approved — all within EH HR. EH Payroll receives the approved timesheet data and processes wages. It does not manage the roster itself.'
+  },
+  {
+    claim: '"EH Payroll processes timesheets directly from the Hero Time Clock."',
+    reality: 'The Hero Time Clock feeds time data into EH HR, where it becomes a timesheet that an employee or manager confirms. That timesheet is then approved in EH HR before being passed to EH Payroll. EH Payroll does not receive raw clock data directly.'
+  },
+  {
+    claim: '"Simpro timesheets are good enough for payroll compliance."',
+    reality: 'Simpro schedule rate multipliers (1.5x, 2x) are for job-costing only — not for legal wage calculation. EH Payroll\'s Pay Conditions Engine applies the legally binding Modern Award rules when processing wages from Simpro timesheet data.'
+  },
+  {
+    claim: '"We can use EH HR rostering instead of Simpro scheduling for field techs."',
+    reality: 'EH HR rostering creates shifts at work sites — it has no concept of a customer job, quote, or billable work order. Field techs need Simpro\'s job-linked scheduling to capture time against specific revenue-generating work.'
+  },
+  {
+    claim: '"Turning on EH HR rostering for our Simpro field techs gives us better compliance."',
+    reality: 'Running both systems for the same employee creates conflicting timesheet data and payroll risk. The compliance solution is to correctly configure EH Payroll\'s Pay Conditions Engine to process the Simpro timesheet data it receives — not to duplicate the time-capture in EH HR.'
+  },
+  {
+    claim: '"EH HR rostering replaces the need for a scheduling calendar."',
+    reality: 'EH HR rostering creates a shift pattern for known work sites. It does not dispatch a technician to a specific customer address, manage job status, track job completion, handle work orders, or link time to billable revenue. Scheduling and rostering solve different problems.'
+  },
+  {
+    claim: '"If we have EH Payroll, we don\'t need EH HR for rostering."',
+    reality: 'Rostering and timesheet lodgement are EH HR platform features, not EH Payroll features. EH Payroll processes the results. A business that wants to roster staff must have EH HR — EH Payroll alone does not provide a rostering interface.'
+  }
+];
+
+function buildMyths() {
+  const container = document.getElementById('myths-list');
+  myths.forEach((m, i) => {
+    container.innerHTML += `
+      <div class="myth-card">
+        <div class="myth-header" onclick="toggleMyth(${i})">
+          <div class="myth-icon">❌</div>
+          <div class="myth-text">
+            <div class="myth-label">Misconception</div>
+            <div class="myth-claim">${m.claim}</div>
+          </div>
+          <div class="myth-chevron" id="mc-${i}">›</div>
+        </div>
+        <div class="myth-body" id="mb-${i}">
+          <div class="myth-reality-tag">✅ Reality</div>
+          <div class="myth-reality">${m.reality}</div>
+        </div>
+      </div>
+    `;
+  });
+}
+buildMyths();
+// init: show overview page
+document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); p.style.display='none'; });
+document.getElementById('page-overview').classList.add('active');
+document.getElementById('page-overview').style.display = 'block';
+const initBtn = document.querySelector('.sidebar-nav-item[data-page="overview"]');
+if (initBtn) initBtn.classList.add('active');
+
+function toggleMyth(i) {
+  const body = document.getElementById('mb-' + i);
+  const chev = document.getElementById('mc-' + i);
+  const open = body.classList.toggle('open');
+  chev.style.transform = open ? 'rotate(90deg)' : 'rotate(0)';
+  chev.style.transition = 'transform 0.2s';
+}
+
+// ── INTEGRATION ADVISOR ──────────────────────────────────────────────────────
+const intState = { hr: false, payroll: false };
+
+function intTogglePlatform(id) {
+  if (document.getElementById('int-result-panel').classList.contains('int-visible')) return;
+  intState[id] = !intState[id];
+  document.getElementById('int-card-' + id).classList.toggle('int-selected', intState[id]);
+  document.getElementById('int-show-btn-row').style.display = (intState.hr || intState.payroll) ? 'block' : 'none';
+}
+
+function intShowOptions() {
+  ['hr','payroll'].forEach(id => document.getElementById('int-card-' + id).classList.add('int-locked'));
+  intRenderResult();
+}
+
+function intResetAll() {
+  intState.hr = false; intState.payroll = false;
+  ['hr','payroll'].forEach(id => {
+    document.getElementById('int-card-' + id).classList.remove('int-selected','int-locked');
+  });
+  document.getElementById('int-show-btn-row').style.display = 'none';
+  document.getElementById('int-result-panel').classList.remove('int-visible');
+}
+
+const INT = {
+  hr: {
+    icon:'🔧', partnerType:'Recommended Integration Partner', name:'Aloka',
+    tagline:'A fully customisable integration between Employment Hero HR and Simpro. Aloka builds tailored connectors — any field in EH HR can be configured to flow into Simpro based on your workflow.',
+    badge:'Custom Integration · Powered by Aloka',
+    typeCls:'int-type-custom', typeIcon:'🔧', typeTitle:'Customisable Integration',
+    typeDesc:"Custom-built and configured by Aloka. Data points shown are common examples — any field can be mapped to suit the customer's exact workflow.",
+    c1title:'Employment Hero HR', c1sub:'HR management platform',
+    c1secs:[
+      { lbl:'Core HR', items:['Employee records & profiles','Contracts & onboarding documents','Org chart & reporting structure'] },
+      { lbl:'Leave Management', items:['Leave requests & approvals','Leave balances & entitlements','Leave status visibility'] },
+      { lbl:'Compliance & Certifications', items:['Licences & ticket tracking','Expiry alerts & renewals','Certification records'] },
+      { lbl:'Rostering & Timesheets', items:['Shift scheduling & roster management','Timesheets submitted & approved'] },
+    ],
+    c1callout:'💡 Aloka provides a fully custom integration — data points shown are common mappings. Any field in EH HR can be configured to flow into Simpro.',
+    arrows:[{dir:'r',lbl:'Employee profile'},{dir:'r',lbl:'Leave status'},{dir:'r',lbl:'Certifications'},{dir:'r',lbl:'Timesheets'}],
+    aboveCount:2, viaLabel:'via Aloka',
+    c2title:'Simpro', c2sub:'Job management platform', c2sim:true,
+    c2secs:[
+      { lbl:'Jobs & Work Orders', items:['Work orders by site, type & status','Job costing & labour hours','Materials & quoting records'] },
+      { lbl:'Scheduling & Dispatch', items:['Technician assignment & calendar','Field staff clock-in / clock-out','Travel & labour hour tracking'] },
+      { lbl:'Workforce (from EH HR)', items:['Employee profiles','Leave visibility for scheduling','Certification checks before dispatch'] },
+      { lbl:'Stays in Simpro', items:['Job codes & cost centres','Subcontractors, parts & assets','Invoicing & billing records'] },
+    ],
+    c2callout:'🔧 What stays in Simpro is also configurable — Aloka can tailor exactly which data crosses the integration boundary.',
+    dp:[
+      { f:'Employee Profile', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Leave Status & Applications', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Certifications & Licences', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Timesheets', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Any EH HR Field (configurable)', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+    ],
+    notes:[
+      { icon:'🎛️', title:'Fully Configurable', body:"Aloka can map any desired field from Employment Hero HR into Simpro. The integration is built to match the customer's exact workflow needs." },
+      { icon:'🔐', title:'Certification-Gated Dispatch', body:'Aloka can configure the integration so Simpro only dispatches technicians whose licences and certifications are current in EH HR.' },
+      { icon:'📅', title:'Leave Visibility in Scheduling', body:"Leave status from EH HR flows into Simpro's scheduling calendar, so dispatchers see real-time availability without switching systems." },
+      { icon:'🤝', title:'Engage Aloka Early', body:'This is a custom integration. Aloka should be engaged during the sales process to scope requirements and confirm feasibility.' },
+    ]
+  },
+  payroll: {
+    icon:'⚡', partnerType:'Recommended Integration Partner', name:'Syncezy',
+    tagline:'A pre-built, out-of-the-box connector between Employment Hero Payroll and Simpro. Syncezy handles all field mapping and sync scheduling — no custom development required.',
+    badge:'Out-of-the-Box Integration · Powered by Syncezy',
+    typeCls:'int-type-ootb', typeIcon:'✅', typeTitle:'Out-of-the-Box Integration',
+    typeDesc:'Pre-built and maintained by Syncezy. Standard configuration only — no custom development or IT resources required.',
+    c1title:'Employment Hero Payroll', c1sub:'Employment management platform',
+    c1secs:[
+      { lbl:'Employee Onboarding', items:['Employee invited & onboarded here','Contracts & documents signed','Bank, tax & super details captured'] },
+      { lbl:'Payroll Data', items:['Pay rates & award rules','Work types & allowances','Leave balances & entitlements','Tax, super & STP obligations'] },
+      { lbl:'Pay Run Processing', items:['Timesheets ingested from Simpro','Activities & leave applied','Pay calculated & payslips issued','ATO & compliance reporting'] },
+    ],
+    c1callout:'💡 Job codes and cost centre details stay in Simpro — intentional, as job costing reconciles downstream in the accounting platform.',
+    arrows:[{dir:'r',lbl:'Employee profile'},{dir:'r',lbl:'Leave applications'},{dir:'l',lbl:'Timesheets'},{dir:'l',lbl:'Activities'},{dir:'l',lbl:'Leave / work type / allowances'},{dir:'l',lbl:'Schedule rate (jobs)'}],
+    aboveCount:2, viaLabel:'via Syncezy',
+    c2title:'Simpro', c2sub:'Job management platform', c2sim:true,
+    c2secs:[
+      { lbl:'Jobs & Scheduling', items:['Work orders & job management','Schedule rates assigned to jobs','Activities & work types configured','Leave & allowance types set up'] },
+      { lbl:'Time Tracking', items:['Field staff log timesheets here','Timesheets flow to EH for payroll','Job codes stay in Simpro only'] },
+      { lbl:'Workforce', items:['Employee profiles received from EH','Leave requests visible (optional)','Field team scheduling & dispatch'] },
+      { lbl:'Stays in Simpro', items:['Job codes & cost centres','Full job costing detail','Materials & labour cost records'] },
+    ],
+    c2callout:'⚠️ Simpro connects separately to your accounting platform for invoicing and full job cost reconciliation.',
+    dp:[
+      { f:'Employee Profile', from:'EH Payroll', to:'Simpro', dir:'to-sim', s:'ootb' },
+      { f:'Leave Applications', from:'EH Payroll', to:'Simpro', dir:'to-sim', s:'ootb' },
+      { f:'Timesheets', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'ootb' },
+      { f:'Activities', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'ootb' },
+      { f:'Leave / Work Type / Allowances', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'ootb' },
+      { f:'Schedule Rate (Jobs)', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'ootb' },
+      { f:'Job Codes & Cost Centres', from:'Simpro', to:'— Stays in Simpro', dir:'boundary', s:'boundary' },
+    ],
+    notes:[
+      { icon:'⚡', title:'Syncezy Handles the Mapping', body:'All field mapping and sync scheduling is managed by Syncezy. No custom development needed from either team.' },
+      { icon:'⚓', title:'Intentional Boundary', body:'Job codes and cost centres intentionally stay within Simpro. Job costing reconciles downstream through the accounting platform.' },
+      { icon:'🔒', title:'No Post-Payroll Sync', body:'No sync back to Simpro after pay runs — deliberate design decision to keep payroll data within EH Payroll.' },
+      { icon:'📋', title:'Standard Config Only', body:'The integration works with standard Syncezy configuration. No IT resources or custom development required.' },
+    ]
+  },
+  both: {
+    icon:'🔧', partnerType:'Recommended Integration Partner', name:'Aloka',
+    tagline:'A fully customisable three-way integration connecting Employment Hero HR, Simpro and Employment Hero Payroll — all powered by Aloka.',
+    badge:'Custom 3-Way Integration · Powered by Aloka',
+    typeCls:'int-type-custom', typeIcon:'🔧', typeTitle:'Customisable 3-Way Integration',
+    typeDesc:'All three platforms connected by Aloka. Data points shown are common examples — any field can be mapped and the integration boundary is fully configurable.',
+    threeWay: true,
+    dp:[
+      { f:'Employee Profile', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Leave Status', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Certifications & Licences', from:'EH HR', to:'Simpro', dir:'to-sim', s:'custom' },
+      { f:'Employee Profile & Tax Details', from:'EH HR', to:'EH Payroll', dir:'bidir', s:'custom' },
+      { f:'Leave Balances & Payslips', from:'EH HR', to:'EH Payroll', dir:'bidir', s:'custom' },
+      { f:'Work Types & Allowances', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'custom' },
+      { f:'Timesheet Data', from:'Simpro', to:'EH Payroll', dir:'to-eh', s:'custom' },
+      { f:'Job Codes & Cost Centres', from:'Simpro', to:'— Stays in Simpro', dir:'boundary', s:'boundary' },
+    ],
+    notes:[
+      { icon:'🔧', title:'Single Partner — Aloka', body:'All three integrations are custom-built and managed by Aloka — one partner, one scope of work, tailored field mapping across all three platforms.' },
+      { icon:'🔄', title:'EH HR ↔ EH Payroll (Bidirectional)', body:'Employee profiles, leave balances and payslips sync bidirectionally between EH HR and EH Payroll, keeping both platforms aligned without manual re-entry.' },
+      { icon:'🔐', title:'Certification-Gated Dispatch', body:'Aloka can configure Simpro to check certification currency from EH HR before dispatching — a powerful compliance safeguard for field teams.' },
+      { icon:'🤝', title:'Engage Aloka During the Sale', body:'Aloka should be brought into the sales process early to scope all three connection points and confirm feasibility.' },
+    ]
+  }
+};
+
+function intDirBadge(d) {
+  if (d==='to-sim')   return '<span class="int-dir-badge int-to-sim">→ Simpro</span>';
+  if (d==='to-eh')    return '<span class="int-dir-badge int-to-eh">→ EH Payroll</span>';
+  if (d==='bidir')    return '<span class="int-dir-badge int-bidir">↔ Bidirectional</span>';
+  if (d==='boundary') return '<span class="int-dir-badge int-boundary">Stays in Simpro</span>';
+  return '';
+}
+
+function intStatusPill(s) {
+  if (s==='ootb')     return '<span class="int-pill int-pill-ootb">Out of the Box</span>';
+  if (s==='custom')   return '<span class="int-pill int-pill-custom">Customisable</span>';
+  if (s==='boundary') return '<span style="font-size:11px;color:var(--text-muted);font-style:italic">Intentional boundary</span>';
+  return '';
+}
+
+function intArrow(dir) {
+  const r = dir === 'r';
+  return `<div class="int-arrow-track">
+    <div class="int-arrow-line ${r?'int-arrow-r':'int-arrow-l'}"></div>
+    ${r ? '<div class="int-arrowhead-r"></div>' : '<div class="int-arrowhead-l"></div>'}
+  </div>`;
+}
+
+function intRenderSecs(secs, sim) {
+  const lCls = sim ? 'int-lbl-sim' : 'int-lbl-eh';
+  return secs.map(s => `
+    <div>
+      <span class="int-sec-label ${lCls}">${s.lbl}</span>
+      <div class="int-flow-items">${s.items.map(i=>`<div class="int-flow-item ${sim?'int-sim-item':''}">${i}</div>`).join('')}</div>
+    </div>
+    <div class="int-flow-divider"></div>
+  `).join('');
+}
+
+function intRenderConnector(arrows, viaLabel, aboveCount) {
+  const mid = aboveCount !== undefined ? aboveCount : Math.ceil(arrows.length / 2);
+  return `<div class="int-connector">
+    ${arrows.slice(0,mid).map((a,i)=>`
+      <div class="int-arrow-row" ${i===0?'style="border-top:none"':''}>
+        <div class="int-arrow-lbl">${a.lbl}</div>
+        ${intArrow(a.dir)}
+      </div>`).join('')}
+    <div class="int-via">${viaLabel}</div>
+    ${arrows.slice(mid).map(a=>`
+      <div class="int-arrow-row">
+        <div class="int-arrow-lbl">${a.lbl}</div>
+        ${intArrow(a.dir)}
+      </div>`).join('')}
+  </div>`;
+}
+
+function intRenderResult() {
+  const cfg = (intState.hr && intState.payroll) ? INT.both : intState.hr ? INT.hr : INT.payroll;
+  let h = '';
+
+  // Partner hero
+  h += `<div class="int-section-lbl">Recommended Integration</div>
+  <div class="int-partner-hero">
+    <div class="int-partner-icon">${cfg.icon}</div>
+    <div class="int-partner-info">
+      <div class="int-partner-type">${cfg.partnerType}</div>
+      <div class="int-partner-name">${cfg.name}</div>
+      <div class="int-partner-tagline">${cfg.tagline}</div>
+      <div class="int-partner-badge"><span class="int-dot"></span>${cfg.badge}</div>
+    </div>
+  </div>
+  <div class="int-type-banner ${cfg.typeCls}">
+    <span class="int-type-icon">${cfg.typeIcon}</span>
+    <div class="int-type-text">
+      <strong>${cfg.typeTitle}</strong>
+      <span>${cfg.typeDesc}</span>
+    </div>
+  </div>`;
+
+  // Legend
+  h += `<div class="int-legend">
+    <span class="int-legend-lbl">Legend</span>
+    <span class="int-legend-item"><span class="int-pill int-pill-ootb">Out of the Box</span> Pre-built, no custom dev</span>
+    <span class="int-legend-item"><span class="int-pill int-pill-custom">Customisable</span> Tailored by partner</span>
+  </div>`;
+
+  // Flow diagram
+  h += `<div class="int-section-lbl">Data Flow Diagram</div>`;
+
+  if (cfg.threeWay) {
+    h += `<div class="int-flow-card">
+      <div class="int-flow-hdr">EH HR × Simpro × EH Payroll · via Aloka</div>
+      <div class="int-flow-body int-three-col">
+        <div class="int-col">
+          <div class="int-col-head int-eh-head"><div class="int-col-title">Employment Hero HR</div><div class="int-col-sub">HR management platform</div></div>
+          <div class="int-col-body">
+            ${intRenderSecs([
+              {lbl:'Core HR',items:['Employee records & profiles','Contracts & onboarding documents','Org chart & reporting structure']},
+              {lbl:'Leave Management',items:['Leave requests & approvals','Leave balances & entitlements','Leave status']},
+              {lbl:'Compliance & Certs',items:['Licences & ticket tracking','Expiry alerts & renewals','Certification records']},
+              {lbl:'Rostering (optional)',items:['Shift scheduling & roster management','Timesheets submitted & approved']},
+            ], false)}
+            <div class="int-callout">💡 Aloka provides a fully custom integration — any field in EH HR can be configured to flow into Simpro or EH Payroll.</div>
+          </div>
+        </div>
+        ${intRenderConnector([{dir:'r',lbl:'Employee profile'},{dir:'r',lbl:'Leave'},{dir:'r',lbl:'Certifications'}], 'via Aloka', 2)}
+        <div class="int-col int-col-sim">
+          <div class="int-col-head int-sim-head"><div class="int-col-title">Simpro</div><div class="int-col-sub">Job management platform</div></div>
+          <div class="int-col-body">
+            ${intRenderSecs([
+              {lbl:'Jobs & Work Orders',items:['Work orders by site, type & status','Job costing & labour hours','Materials & quoting records']},
+              {lbl:'Scheduling & Dispatch',items:['Technician assignment & calendar','Field staff clock-in / clock-out','Travel & labour hour tracking']},
+              {lbl:'Workforce (from EH HR)',items:['Employee profiles','Leave visibility for scheduling','Certification checks before dispatch']},
+              {lbl:'Stays in Simpro',items:['Job codes & cost centres','Subcontractors, parts & assets','Invoicing & billing records']},
+            ], true)}
+            <div class="int-callout int-callout-blue">🔧 What stays in Simpro is configurable — Aloka can tailor exactly which data crosses the boundary.</div>
+          </div>
+        </div>
+        ${intRenderConnector([{dir:'r',lbl:'Work types'},{dir:'r',lbl:'Allowances'},{dir:'r',lbl:'Timesheet data'}], 'via Aloka', 1)}
+        <div class="int-col">
+          <div class="int-col-head int-eh-head"><div class="int-col-title">Employment Hero Payroll</div><div class="int-col-sub">Payroll & workforce platform</div></div>
+          <div class="int-col-body">
+            ${intRenderSecs([
+              {lbl:'Payroll Processing',items:['Pay runs & pay period management','Gross & net pay calculations','Superannuation & tax lodgements']},
+              {lbl:'Timesheets & Hours',items:['Labour hours from Simpro','Overtime & allowance calculations','Award interpretation & penalty rates']},
+              {lbl:'Employee Data (from EH HR)',items:['Employee profiles & tax details','Leave balances & accruals','Banking & payment details']},
+              {lbl:'Compliance & Reporting',items:['Single Touch Payroll (STP) reporting','PAYG withholding & ATO lodgements','Payroll summaries & audit trail']},
+            ], false)}
+            <div class="int-callout">💰 EH Payroll receives job-level labour data from Simpro and stays in sync with EH HR — accurate pay runs without manual re-entry.</div>
+          </div>
+        </div>
+      </div>
+      <div class="int-bidir-wrap">
+        <div class="int-bidir-label">↔ EH HR ↔ EH Payroll — bidirectional sync via Aloka</div>
+        <svg viewBox="0 0 600 44" width="100%" style="max-width:520px;display:block;margin:0 auto 10px" fill="none">
+          <defs>
+            <marker id="iaR" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto"><path d="M0,0 L0,7 L8,3.5 z" fill="#7622d7"/></marker>
+            <marker id="iaL" markerWidth="8" markerHeight="8" refX="1" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L0,7 L8,3.5 z" fill="#7622d7"/></marker>
+            <linearGradient id="iaG" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#7622d7" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#a569ff" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#7622d7" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+          <path d="M 55,8 C 190,44 410,44 545,8" fill="none" stroke="url(#iaG)" stroke-width="2" marker-start="url(#iaL)" marker-end="url(#iaR)"/>
+        </svg>
+        <div class="int-bidir-pills">
+          <span class="int-bidir-pill">Employee profile</span>
+          <span class="int-bidir-pill">Leave</span>
+          <span class="int-bidir-pill">Leave balances</span>
+          <span class="int-bidir-pill">Payslips</span>
+        </div>
+      </div>
+    </div>`;
+  } else {
+    h += `<div class="int-flow-card">
+      <div class="int-flow-hdr">${cfg.c1title} ↔ ${cfg.c2title} · ${cfg.viaLabel}</div>
+      <div class="int-flow-body int-two-col">
+        <div class="int-col ${cfg.c2sim?'':''}">
+          <div class="int-col-head int-eh-head"><div class="int-col-title">${cfg.c1title}</div><div class="int-col-sub">${cfg.c1sub}</div></div>
+          <div class="int-col-body">
+            ${intRenderSecs(cfg.c1secs, false)}
+            <div class="int-callout">${cfg.c1callout}</div>
+          </div>
+        </div>
+        ${intRenderConnector(cfg.arrows, cfg.viaLabel, cfg.aboveCount)}
+        <div class="int-col ${cfg.c2sim?'int-col-sim':''}">
+          <div class="int-col-head int-sim-head"><div class="int-col-title">${cfg.c2title}</div><div class="int-col-sub">${cfg.c2sub}</div></div>
+          <div class="int-col-body">
+            ${intRenderSecs(cfg.c2secs, true)}
+            <div class="int-callout int-callout-blue">${cfg.c2callout}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Data table
+  h += `<div class="int-section-lbl">Data Points at a Glance</div>
+  <div class="int-table-card">
+    <div class="int-table-hdr">${cfg.name === 'Syncezy' ? 'Synced Fields' : 'Example Synced Fields'} &amp; Integration Type</div>
+    <table class="int-table">
+      <thead><tr><th>Data Field</th><th>From</th><th>To</th><th>Direction</th><th>Type</th></tr></thead>
+      <tbody>${cfg.dp.map(dp=>`<tr>
+        <td style="font-weight:600;color:var(--text-primary)">${dp.f}</td>
+        <td>${dp.from}</td><td>${dp.to}</td>
+        <td>${intDirBadge(dp.dir)}</td>
+        <td>${intStatusPill(dp.s)}</td>
+      </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+
+  // Notes
+  h += `<div class="int-section-lbl">Key Considerations for Sales</div>
+  <div class="int-notes-grid">${cfg.notes.map(n=>`
+    <div class="int-note-card">
+      <span class="int-note-icon">${n.icon}</span>
+      <div class="int-note-title">${n.title}</div>
+      <div class="int-note-body">${n.body}</div>
+    </div>`).join('')}
+  </div>`;
+
+  document.getElementById('int-result-inner').innerHTML = h;
+  document.getElementById('int-result-panel').classList.add('int-visible');
+  document.getElementById('int-show-btn-row').style.display = 'none';
+}
+</script>
+
+<!-- ════════════════ INTEGRATION ADVISOR STYLES ════════════════ -->
+<style>
+@keyframes intFadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes intFlowR  { 0%{background-position:-100% 0} 100%{background-position:100% 0} }
+@keyframes intFlowL  { 0%{background-position:100% 0} 100%{background-position:-100% 0} }
+@keyframes intPulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+#page-integration { padding-top: 24px; }
+.int-intro-hero {
+  background: linear-gradient(135deg, var(--purple-bg), #3a0a6e);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  margin-bottom: 28px;
+}
+.int-intro-hero h2 {
+  color: var(--white);
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.int-intro-hero p { color: rgba(253,251,255,0.72); font-size: 14.5px; line-height: 1.7; max-width: 600px; }
+
+.int-step-row { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.int-step-num {
+  width:30px; height:30px; border-radius:50%;
+  background:var(--purple-lightest); border:1.5px solid var(--purple);
+  color:var(--purple-dark); font-size:13px; font-weight:700;
+  font-family:'Lexend',sans-serif;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.int-step-title {
+  font-family:'Lexend',sans-serif; font-size:12px; font-weight:700;
+  color:var(--text-muted); letter-spacing:0.14em; text-transform:uppercase;
+}
+
+/* Platform cards */
+.int-platform-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
+.int-platform-card {
+  border:1.5px solid var(--gray-200); border-radius:16px; padding:22px 20px;
+  cursor:pointer; background:var(--white);
+  transition:all 0.2s; position:relative; overflow:hidden; user-select:none;
+}
+.int-platform-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0; transition:opacity 0.2s;
+}
+.int-p-eh::before { background:linear-gradient(90deg,#460078,#a569ff); }
+.int-p-sim::before { background:linear-gradient(90deg,#0f2d66,#3a5fa0); }
+.int-platform-card:hover:not(.int-locked) { transform:translateY(-3px); box-shadow:0 8px 32px rgba(118,34,215,0.15); border-color:rgba(118,34,215,0.35); }
+.int-platform-card:hover:not(.int-locked)::before { opacity:1; }
+.int-selected.int-p-eh { border-color:var(--purple-dark); background:linear-gradient(145deg,rgba(118,34,215,0.08),rgba(118,34,215,0.03)); box-shadow:0 0 0 2px var(--purple-dark),0 8px 24px rgba(118,34,215,0.12); }
+.int-selected.int-p-sim { border-color:#3a5fa0; background:linear-gradient(145deg,rgba(15,45,102,0.08),rgba(15,45,102,0.03)); box-shadow:0 0 0 2px #3a5fa0,0 8px 24px rgba(15,45,102,0.12); }
+.int-selected::before { opacity:1; }
+.int-locked { cursor:default; }
+.int-locked:not(.int-selected) { opacity:0.4; }
+.int-locked:hover:not(.int-selected) { transform:none; box-shadow:none; border-color:var(--gray-200); }
+.int-p-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:19px; margin-bottom:14px; }
+.int-p-icon-eh { background:var(--purple-lightest); border:1px solid var(--purple-lighter); }
+.int-p-icon-sim { background:#ddeeff; border:1px solid #b0cce8; }
+.int-p-name { font-family:'Lexend',sans-serif; font-weight:700; font-size:14.5px; color:var(--text-primary); margin-bottom:5px; line-height:1.3; }
+.int-p-desc { font-size:13px; color:var(--text-muted); line-height:1.45; }
+.int-p-check {
+  position:absolute; top:16px; right:16px; width:22px; height:22px; border-radius:50%;
+  background:var(--lime); display:flex; align-items:center; justify-content:center;
+  opacity:0; transform:scale(0.5); transition:all 0.2s;
+}
+.int-p-check::after { content:'✓'; color:#121214; font-size:11px; font-weight:800; }
+.int-selected .int-p-check { opacity:1; transform:scale(1); }
+.int-p-sim .int-p-check { background:var(--cyan); }
+.int-locked-badge {
+  display:inline-flex; align-items:center; gap:4px; margin-top:10px;
+  font-size:11px; color:var(--text-muted); background:var(--gray-100);
+  border:1px solid var(--gray-200); padding:3px 8px; border-radius:4px;
+  font-family:'Lexend',sans-serif;
+}
+
+/* Show button */
+.int-show-btn {
+  padding:14px 44px; border-radius:6px; border:none;
+  background:var(--purple-dark); color:var(--white);
+  font-family:'Lexend',sans-serif; font-size:14px; font-weight:800;
+  letter-spacing:0.08em; text-transform:uppercase;
+  cursor:pointer; transition:all 0.2s;
+  box-shadow:0 4px 20px rgba(118,34,215,0.3);
+}
+.int-show-btn:hover { background:#5c0fbf; transform:translateY(-2px); box-shadow:0 8px 28px rgba(118,34,215,0.4); }
+
+/* Result */
+.int-result-hidden { display:none; }
+.int-visible { display:block !important; animation:intFadeUp 0.35s ease both; }
+
+.int-section-lbl {
+  font-family:'Lexend',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--purple-dark);
+  margin:20px 0 12px;
+}
+
+/* Partner hero */
+.int-partner-hero {
+  background:linear-gradient(135deg,#1a0035,var(--purple-bg),#460078);
+  border-radius:var(--radius); padding:22px 26px;
+  display:flex; align-items:center; gap:20px;
+  border:1px solid rgba(118,34,215,0.35); margin-bottom:14px;
+  position:relative; overflow:hidden;
+}
+.int-partner-hero::before {
+  content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%;
+  background:radial-gradient(circle,rgba(186,252,88,0.07) 0%,transparent 70%); pointer-events:none;
+}
+.int-partner-icon { width:48px; height:48px; border-radius:10px; background:rgba(186,252,88,0.12); border:1px solid rgba(186,252,88,0.3); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; position:relative; z-index:1; }
+.int-partner-info { flex:1; position:relative; z-index:1; }
+.int-partner-type { font-family:'Lexend',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--lime); margin-bottom:3px; }
+.int-partner-name { font-family:'Lexend',sans-serif; font-size:24px; font-weight:800; color:var(--white); letter-spacing:-0.02em; text-transform:uppercase; margin-bottom:4px; }
+.int-partner-tagline { font-size:13.5px; color:rgba(253,251,255,0.72); line-height:1.55; max-width:560px; }
+.int-partner-badge {
+  display:inline-flex; align-items:center; gap:7px; margin-top:10px;
+  padding:5px 13px; border-radius:5px; font-size:11.5px; font-weight:700;
+  font-family:'Lexend',sans-serif; letter-spacing:0.06em; text-transform:uppercase;
+  background:rgba(186,252,88,0.15); border:1px solid rgba(186,252,88,0.35); color:var(--lime);
+}
+.int-dot { width:6px; height:6px; border-radius:50%; background:var(--lime); animation:intPulse 2s ease-in-out infinite; display:inline-block; }
+
+/* Type banner */
+.int-type-banner { display:flex; align-items:center; gap:13px; padding:13px 18px; border-radius:10px; margin-bottom:18px; font-size:14px; }
+.int-type-ootb { background:rgba(15,45,102,0.06); border:1.5px solid rgba(15,45,102,0.2); color:#0f2d66; }
+.int-type-custom { background:rgba(118,34,215,0.05); border:1.5px solid rgba(118,34,215,0.2); color:var(--purple-dark); }
+.int-type-icon { font-size:20px; }
+.int-type-text strong { display:block; font-family:'Lexend',sans-serif; font-size:12.5px; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:2px; }
+.int-type-text span { font-size:13px; color:var(--text-muted); }
+
+/* Legend */
+.int-legend {
+  display:flex; align-items:center; gap:18px; padding:10px 16px;
+  background:var(--white); border:1px solid var(--gray-200);
+  border-radius:10px; margin-bottom:18px; flex-wrap:wrap;
+}
+.int-legend-lbl { font-family:'Lexend',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-muted); }
+.int-legend-item { display:flex; align-items:center; gap:7px; font-size:13px; color:var(--text-muted); }
+.int-pill { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; padding:3px 9px; border-radius:4px; font-family:'Lexend',sans-serif; letter-spacing:0.06em; text-transform:uppercase; }
+.int-pill::before { content:''; width:5px; height:5px; border-radius:50%; }
+.int-pill-ootb { background:rgba(15,45,102,0.08); color:#0f2d66; border:1px solid rgba(15,45,102,0.2); }
+.int-pill-ootb::before { background:#0f2d66; }
+.int-pill-custom { background:rgba(118,34,215,0.08); color:var(--purple-dark); border:1px solid rgba(118,34,215,0.2); }
+.int-pill-custom::before { background:var(--purple-dark); }
+
+/* Flow diagram */
+.int-flow-card {
+  background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); overflow:hidden; margin-bottom:18px; box-shadow:var(--shadow-sm);
+}
+.int-flow-hdr { padding:11px 18px; background:var(--gray-100); border-bottom:1px solid var(--gray-200); font-family:'Lexend',sans-serif; font-size:11px; font-weight:700; color:var(--text-muted); letter-spacing:0.18em; text-transform:uppercase; }
+.int-flow-body { padding:18px 14px; display:grid; align-items:stretch; }
+.int-two-col { grid-template-columns:1fr 100px 1fr; }
+.int-three-col { grid-template-columns:1fr 90px 1fr 90px 1fr; }
+.int-col { border-radius:10px; overflow:hidden; border:1px solid var(--gray-200); }
+.int-col-head { padding:11px 14px; }
+.int-col-title { font-family:'Lexend',sans-serif; font-size:13px; font-weight:700; color:#fff; }
+.int-col-sub { font-size:11.5px; color:rgba(255,255,255,0.55); margin-top:2px; }
+.int-eh-head { background:linear-gradient(135deg,#1a0035,#460078); }
+.int-sim-head { background:linear-gradient(135deg,#0a1a40,#0f2d66); }
+.int-col-body { padding:12px 11px; display:flex; flex-direction:column; gap:10px; }
+.int-sec-label { font-family:'Lexend',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:3px 7px; border-radius:3px; display:inline-block; margin-bottom:5px; }
+.int-lbl-eh { background:rgba(118,34,215,0.08); color:#5a10b0; border:1px solid rgba(118,34,215,0.18); }
+.int-lbl-sim { background:rgba(15,45,102,0.08); color:#0f2d66; border:1px solid rgba(15,45,102,0.18); }
+.int-flow-items { display:flex; flex-direction:column; gap:4px; }
+.int-flow-item { display:flex; align-items:flex-start; gap:7px; font-size:12.5px; color:var(--text-secondary); line-height:1.4; }
+.int-flow-item::before { content:'–'; font-size:11px; margin-top:1px; flex-shrink:0; color:var(--purple); }
+.int-sim-item::before { color:#3a5fa0; }
+.int-flow-divider { height:1px; background:var(--gray-200); }
+.int-callout { padding:9px 11px; border-radius:7px; font-size:12px; line-height:1.55; color:var(--purple-dark); background:rgba(118,34,215,0.05); border:1px solid rgba(118,34,215,0.15); }
+.int-callout-blue { color:#0f2d66; background:rgba(15,45,102,0.05); border-color:rgba(15,45,102,0.15); }
+
+/* Connector */
+.int-connector { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0; }
+.int-via { font-family:'Lexend',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.08em; text-align:center; padding:5px 9px; border-radius:20px; margin:4px 0; white-space:nowrap; background:rgba(118,34,215,0.08); border:1px solid rgba(118,34,215,0.25); color:var(--purple-dark); text-transform:uppercase; }
+.int-arrow-row { width:100%; display:flex; flex-direction:column; align-items:center; gap:2px; padding:5px 0; border-top:1px solid var(--gray-200); }
+.int-arrow-row:first-child { border-top:none; }
+.int-arrow-lbl { font-family:'Lexend',sans-serif; font-size:8.5px; text-align:center; color:var(--text-muted); line-height:1.3; }
+.int-arrow-track { width:100%; height:14px; position:relative; display:flex; align-items:center; }
+.int-arrow-line { position:absolute; left:4px; right:4px; top:50%; transform:translateY(-50%); height:1.5px; border-radius:2px; }
+.int-arrow-r { background:linear-gradient(90deg,transparent,var(--purple-dark),transparent); background-size:200% 100%; animation:intFlowR 1.8s linear infinite; }
+.int-arrow-l { background:linear-gradient(270deg,transparent,#0f2d66,transparent); background-size:200% 100%; animation:intFlowL 1.8s linear infinite; }
+.int-arrowhead-r { position:absolute; right:0; top:50%; transform:translateY(-50%); width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:7px solid var(--purple-dark); }
+.int-arrowhead-l { position:absolute; left:0; top:50%; transform:translateY(-50%); width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-right:7px solid #0f2d66; }
+
+/* Bidir */
+.int-bidir-wrap { padding:14px 18px 18px; border-top:1px solid var(--gray-200); text-align:center; }
+.int-bidir-label { font-family:'Lexend',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:0.12em; color:var(--text-muted); text-transform:uppercase; margin-bottom:8px; }
+.int-bidir-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:6px; }
+.int-bidir-pill { font-size:12.5px; color:var(--purple-dark); padding:4px 12px; border-radius:4px; background:rgba(118,34,215,0.07); border:1px solid rgba(118,34,215,0.18); }
+
+/* Table */
+.int-table-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); overflow:hidden; margin-bottom:18px; box-shadow:var(--shadow-sm); }
+.int-table-hdr { padding:11px 18px; background:var(--gray-100); border-bottom:1px solid var(--gray-200); font-family:'Lexend',sans-serif; font-size:11px; font-weight:700; color:var(--text-muted); letter-spacing:0.18em; text-transform:uppercase; }
+.int-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.int-table th { padding:10px 16px; font-family:'Lexend',sans-serif; font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; border-bottom:1px solid var(--gray-200); text-align:left; }
+.int-table td { padding:11px 16px; border-bottom:1px solid var(--gray-100); vertical-align:middle; color:var(--text-secondary); }
+.int-table tr:last-child td { border-bottom:none; }
+.int-table tr:hover td { background:rgba(118,34,215,0.02); }
+.int-dir-badge { display:inline-flex; align-items:center; font-size:11px; font-weight:700; padding:3px 9px; border-radius:4px; font-family:'Lexend',sans-serif; letter-spacing:0.06em; text-transform:uppercase; white-space:nowrap; }
+.int-to-sim { background:rgba(118,34,215,0.07); color:#5a10b0; border:1px solid rgba(118,34,215,0.18); }
+.int-to-eh { background:rgba(15,45,102,0.07); color:#0f2d66; border:1px solid rgba(15,45,102,0.18); }
+.int-bidir { background:rgba(118,34,215,0.07); color:var(--purple-dark); border:1px solid rgba(118,34,215,0.2); }
+.int-boundary { background:var(--gray-100); color:var(--text-muted); border:1px solid var(--gray-200); }
+
+/* Notes */
+.int-notes-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px; }
+.int-note-card { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow-sm); transition:border-color 0.15s; }
+.int-note-card:hover { border-color:rgba(118,34,215,0.3); }
+.int-note-icon { font-size:22px; margin-bottom:9px; display:block; }
+.int-note-title { font-family:'Lexend',sans-serif; font-size:12.5px; font-weight:700; color:var(--text-primary); margin-bottom:6px; letter-spacing:0.04em; text-transform:uppercase; }
+.int-note-body { font-size:13.5px; color:var(--text-secondary); line-height:1.65; }
+
+/* Reset */
+.int-reset-btn { padding:11px 28px; border-radius:6px; border:1.5px solid var(--gray-300); background:transparent; font-family:'Lexend',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); cursor:pointer; transition:all 0.2s; margin-top:4px; }
+.int-reset-btn:hover { border-color:var(--purple-dark); color:var(--purple-dark); background:rgba(118,34,215,0.05); }
+
+@media (max-width:860px) {
+  .int-platform-grid { grid-template-columns:1fr; }
+  .int-two-col, .int-three-col { grid-template-columns:1fr; }
+  .int-notes-grid { grid-template-columns:1fr; }
+}
+</style>
+
+<!-- ════════════════ INTEGRATION ADVISOR PAGE ════════════════ -->
+<div id="page-integration" class="page">
+
+  <div class="int-intro-hero">
+    <h2>Integration Advisor</h2>
+    <p>Select the Employment Hero platforms your customer is using alongside Simpro. The advisor will recommend the right integration partner, show the complete data flow, and surface the key sales considerations.</p>
+  </div>
+
+  <div class="int-step-row">
+    <div class="int-step-num">1</div>
+    <div class="int-step-title">Select all EH platforms in use</div>
+  </div>
+
+  <div class="int-platform-grid">
+    <div class="int-platform-card int-p-eh" id="int-card-hr" onclick="intTogglePlatform('hr')">
+      <div class="int-p-check"></div>
+      <div class="int-p-icon int-p-icon-eh">👥</div>
+      <div class="int-p-name">Employment Hero<br>HR</div>
+      <div class="int-p-desc">Core HR, leave, compliance, onboarding & performance</div>
+    </div>
+    <div class="int-platform-card int-p-eh" id="int-card-payroll" onclick="intTogglePlatform('payroll')">
+      <div class="int-p-check"></div>
+      <div class="int-p-icon int-p-icon-eh">💼</div>
+      <div class="int-p-name">Employment Hero<br>Payroll</div>
+      <div class="int-p-desc">Payroll processing, STP, timesheets & pay runs</div>
+    </div>
+    <div class="int-platform-card int-p-sim int-selected int-locked">
+      <div class="int-p-check"></div>
+      <div class="int-p-icon int-p-icon-sim">🔧</div>
+      <div class="int-p-name">Simpro</div>
+      <div class="int-p-desc">Job management, scheduling, field service & quoting</div>
+      <div class="int-locked-badge">⚓ Always included</div>
+    </div>
+  </div>
+
+  <div id="int-show-btn-row" style="text-align:center;margin-bottom:32px;display:none">
+    <button class="int-show-btn" onclick="intShowOptions()">Show Integration Options →</button>
+  </div>
+
+  <div id="int-result-panel" class="int-result-hidden">
+    <div id="int-result-inner"></div>
+    <div style="text-align:center;margin-top:8px;margin-bottom:16px">
+      <button class="int-reset-btn" onclick="intResetAll()">← Start Over</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════ ROI PAGE ════════════════ -->
+<div id="page-roi" class="page">
+
+  <div class="roi-hero">
+    <h2>Integration ROI — Why a third-party partner pays for itself</h2>
+    <p>Connecting Simpro to Employment Hero via a specialist integration partner (Aloka or Syncezy) is not an additional cost — it's a return-generating investment. Here's the business case.</p>
+  </div>
+
+  <div class="section-header">
+    <h2>The cost of doing nothing</h2>
+    <span class="section-tag">Manual process risk</span>
+  </div>
+
+  <div class="roi-stat-banner">
+    <div class="roi-accent-bar bar-purple"></div>
+    <div class="roi-stat-num">4–6 hrs</div>
+    <div class="roi-stat-label"><strong>Lost every pay cycle</strong> to manual data re-entry between Simpro and payroll. At 26 pay cycles per year, that's 104–156 hours of admin time per year — the equivalent of 3–4 full working weeks.</div>
+  </div>
+  <div class="roi-stat-banner">
+    <div class="roi-accent-bar bar-amber"></div>
+    <div class="roi-stat-num">$50K+</div>
+    <div class="roi-stat-label"><strong>Average Fair Work underpayment penalty</strong> for a single award non-compliance breach. Manual timesheet re-entry creates transcription errors that misapply penalty rates, overtime, and allowances — each one a compliance liability.</div>
+  </div>
+  <div class="roi-stat-banner">
+    <div class="roi-accent-bar bar-cyan"></div>
+    <div class="roi-stat-num">3–5 days</div>
+    <div class="roi-stat-label"><strong>Typical delay</strong> between a field technician completing work in Simpro and that time being accurately reflected in payroll — causing payroll disputes, correction runs, and employee dissatisfaction.</div>
+  </div>
+
+  <div class="roi-callout">
+    <div class="roi-callout-icon">💡</div>
+    <div class="roi-callout-text">
+      <div class="roi-callout-label">The core argument</div>
+      <div class="roi-callout-body">A third-party integration partner doesn't just connect two systems — they <strong>eliminate the human error layer between job completion and payroll processing.</strong> The integration fee is recovered within 1–2 pay cycles through time savings alone. Compliance risk reduction is the compounding return on top.</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <h2>Manual vs integrated: side by side</h2>
+    <span class="section-tag">Time & compliance</span>
+  </div>
+
+  <div class="roi-vs-table">
+    <table>
+      <thead>
+        <tr>
+          <th style="background:var(--gray-100);color:var(--text-muted)">Process</th>
+          <th class="th-manual">❌ Manual (No Integration)</th>
+          <th class="th-integrated">✅ Integrated via Partner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Timesheet entry</td>
+          <td>Admin manually re-keys Simpro timesheets into payroll. Error rate: high.</td>
+          <td class="roi-check">Timesheets flow automatically. Zero re-entry. Zero transcription errors.</td>
+        </tr>
+        <tr>
+          <td>Award rule application</td>
+          <td>Manual interpretation of penalty rates, OT, and allowances. Compliance risk every pay run.</td>
+          <td class="roi-check">EH Payroll's Pay Conditions Engine applies legally binding award rules automatically.</td>
+        </tr>
+        <tr>
+          <td>Employee onboarding</td>
+          <td>New starters must be created in both Simpro and payroll separately.</td>
+          <td class="roi-check">Employee profile created once in EH, flows to Simpro automatically.</td>
+        </tr>
+        <tr>
+          <td>Leave visibility for scheduling</td>
+          <td>Dispatcher checks leave in one system, schedules in another. Conflicts common.</td>
+          <td class="roi-check">Leave status syncs to Simpro. Dispatcher sees real-time availability in one view.</td>
+        </tr>
+        <tr>
+          <td>Certification compliance</td>
+          <td>Manual check before each dispatch. Expired licences dispatched by accident.</td>
+          <td class="roi-check">Aloka gates dispatch on current certification in EH HR. Non-compliant dispatches blocked.</td>
+        </tr>
+        <tr>
+          <td>Pay run corrections</td>
+          <td>Correction runs common — 1–2 per quarter from re-entry errors.</td>
+          <td class="roi-check">Correction runs near-eliminated. Payroll processed correctly first time, every time.</td>
+        </tr>
+        <tr>
+          <td>Audit trail</td>
+          <td>Data split across two systems. Reconciliation is manual and time-consuming.</td>
+          <td class="roi-check">Single source of truth. Full audit trail from job completion through to payslip.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-header">
+    <h2>Where the ROI comes from</h2>
+    <span class="section-tag">Value drivers</span>
+  </div>
+
+  <div class="roi-grid-3">
+    <div class="roi-card">
+      <span class="roi-card-icon">⏱</span>
+      <h4>Admin Time Recovered</h4>
+      <p>Each automated pay cycle eliminates 4–6 hours of manual re-entry. A 50-person field team running fortnightly payroll recovers over 130 admin hours per year — equivalent to a part-time hire.</p>
+    </div>
+    <div class="roi-card">
+      <span class="roi-card-icon">⚖️</span>
+      <h4>Compliance Risk Eliminated</h4>
+      <p>Every manual transcription is a potential underpayment. With the integration, EH Payroll's award engine interprets Simpro timesheet data directly — no human interpretation, no exposure.</p>
+    </div>
+    <div class="roi-card">
+      <span class="roi-card-icon">🔐</span>
+      <h4>Certification-Gated Dispatch</h4>
+      <p>Aloka's integration blocks dispatch of any technician whose licence or certification has lapsed in EH HR. One avoided compliance incident covers years of integration fees.</p>
+    </div>
+    <div class="roi-card">
+      <span class="roi-card-icon">📅</span>
+      <h4>Scheduling Accuracy</h4>
+      <p>Real-time leave status in Simpro means dispatchers never accidentally schedule staff who are on leave. Fewer failed jobs, fewer customer calls, fewer rescheduling costs.</p>
+    </div>
+    <div class="roi-card">
+      <span class="roi-card-icon">👤</span>
+      <h4>Onboarding Speed</h4>
+      <p>New starters onboarded in EH HR flow directly to Simpro — no double-entry. Technicians are dispatch-ready from day one, reducing the onboarding lag that delays productive billing.</p>
+    </div>
+    <div class="roi-card">
+      <span class="roi-card-icon">📊</span>
+      <h4>Single Source of Truth</h4>
+      <p>One integrated data pipeline from job clock-on to payslip. Audits, disputes, and reporting take minutes instead of days. Finance and HR speak the same numbers.</p>
+    </div>
+  </div>
+
+  <div class="roi-callout" style="margin-bottom:0">
+    <div class="roi-callout-icon">🤝</div>
+    <div class="roi-callout-text">
+      <div class="roi-callout-label">Positioning for Sales</div>
+      <div class="roi-callout-body">Frame the integration partner fee as <strong>insurance + efficiency combined.</strong> Ask the prospect: "How much is your payroll admin team spending every fortnight on manual data entry? What would one Fair Work underpayment investigation cost you?" The integration pays for itself before the first annual renewal. Engage <strong>Aloka</strong> (custom) or <strong>Syncezy</strong> (out-of-the-box) early in the sales process to provide a scoped cost estimate — this makes the ROI conversation concrete and prospect-specific.</div>
+    </div>
+  </div>
+
+</div>
+
+</main>
+</div>
+
+</body>
+</html>
